@@ -4,6 +4,10 @@ body {
   font-family: sans-serif;
 }
 
+button:focus {
+  outline: 0;
+}
+
 .active_stage {
   background: #332640;
 }
@@ -25,7 +29,6 @@ body {
 }
 
 .deploy_stage {
-  background: #332640;
   margin-top: 2%;
   border-top: 1px solid #3ee7ad;
   border-top-left-radius: 15px;

@@ -5,24 +5,24 @@ class Deploy extends Component {
   constructor (props) {
     super(props);
 
-    this.active = true;
     this.deployContract = this.deployContract.bind(this);
+  }
+
+  componentDidMount() {
+    if (this.props.currentStage === 0) {
+      document.getElementById('deploy').classList.add('active_stage');
+    }
   }
 
   deployContract(e) {
     e.preventDefault();
     if (this.props.currentStage === 0) {
-      this.active = false;
+      document.getElementById('deploy').classList.remove('active_stage');
       this.props.nextStage(this.props.currentStage + 1);
     }
   }
 
   render() {
-    let stage;
-    if (!this.active) {
-      stage = document.getElementById('deploy');
-      stage.style.background = "#202020";
-    }
     return (
       <div id="deploy" className="stage deploy_stage">
         <form className="form_container" onSubmit={this.deployContract} >

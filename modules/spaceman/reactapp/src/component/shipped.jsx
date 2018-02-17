@@ -8,9 +8,16 @@ class Shipped extends Component {
     this.shipGoods = this.shipGoods.bind(this);
   }
 
+  componentDidUpdate() {
+    if (this.props.currentStage === 2) {
+      document.getElementById('shipped').classList.add('active_stage');
+    }
+  }
+
   shipGoods (e) {
     e.preventDefault();
     if (this.props.currentStage === 2) {
+      document.getElementById('shipped').classList.remove('active_stage');
       this.props.nextStage(this.props.currentStage + 1);
     }
   }

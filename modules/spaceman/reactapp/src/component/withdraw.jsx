@@ -4,13 +4,19 @@ class Withdraw extends Component {
   constructor (props) {
     super(props);
 
-    this.active = false;
     this.withdrawFunds = this.withdrawFunds.bind(this);
+  }
+
+  componentDidUpdate() {
+    if (this.props.currentStage === 4) {
+      document.getElementById('withdraw').classList.add('active_stage');
+    }
   }
 
   withdrawFunds(e) {
     e.preventDefault();
     if (this.props.currentStage === 4) {
+      document.getElementById('withdraw').classList.remove('active_stage');
       this.props.nextStage(this.props.currentStage + 1);
     }
   }
