@@ -7,8 +7,8 @@ class Approve extends Component {
 
   render() {
     return (
-      <div className='approve'>
-          <button onClick={this.approveFunds}>
+      <div className='button_only'>
+          <button className='button_static' onClick={this.approveFunds}>
             Approve Transaction
           </button>
       </div>

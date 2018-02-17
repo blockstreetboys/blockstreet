@@ -7,12 +7,16 @@ class Withdraw extends Component {
 
   render() {
     return (
-      <div className="withdraw">
-        <form onSubmit={this.withdrawFunds}>
-          <button>Withdraw Funds</button>
-          <label>Amount
-            <input />
-          </label>
+      <div className="stage">
+        <form className="form_container" onSubmit={this.withdrawFunds}>
+          <div className="button_container">
+            <button className="button_input">Withdraw Funds</button>
+          </div>
+          <div className="input_fields">
+            <label>Amount
+              <input />
+            </label>
+          </div>
         </form>
       </div>
     );

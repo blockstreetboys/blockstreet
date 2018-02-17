@@ -8,7 +8,7 @@ import Withdraw from './component/withdraw';
 class App extends Component {
   render() {
     return (
-      <div>
+      <div className="spaceman">
         <Deploy/>
         <Fund />
         <Shipped />

@@ -7,12 +7,16 @@ class Fund extends Component {
 
   render() {
     return (
-      <div className="fund_contract">
-        <form onSubmit={this.fundContract}>
-          <button>Fund Contract</button>
-          <label>Amount
-            <input />
-          </label>
+      <div className="stage">
+        <form className="form_container" onSubmit={this.fundContract}>
+          <div className="button_container">
+            <button className="button_input">Fund Contract</button>
+          </div>
+          <div className="input_fields">
+            <label>Amount
+              <input />
+            </label>
+          </div>
         </form>
       </div>
     );
