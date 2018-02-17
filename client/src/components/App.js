@@ -5,6 +5,7 @@ import store from '../store';
 import '../scss_dist/index.css';
 import Tutorial from './tutorial';
 import SplashPage from './splash';
+import NavBar from './navbar';
 
 
 class App extends Component {
@@ -12,10 +13,13 @@ class App extends Component {
     return (
       <Provider store={store}>
         <HashRouter>
-          <Switch>
-            <Route path="/tutorial" component={Tutorial}/>
-            <Route path="/" component={SplashPage} />
-          </Switch>
+          <main>
+            <NavBar />
+            <Switch>
+              <Route path="/tutorial" component={Tutorial}/>
+              <Route path="/" component={SplashPage} />
+            </Switch>
+          </main>
         </HashRouter>
       </Provider>
     );

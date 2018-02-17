@@ -41,6 +41,9 @@ class Sidebar extends Component {
     }
 
     const sidebarClasses = ["dev-sidebar animated fadeInLeft"];
+    if (this.props.sidebarShown !== true) {
+      // sidebarClasses.push("hidden-sidebar");
+    }
 
     const stages = this.props.stages.map((stage, idx)=>{
       return <StageButton
@@ -58,6 +61,7 @@ class Sidebar extends Component {
         <div
           className='dev-sidebar-handle'
           onClick={this.toggleSidebar}>
+          <div id="sidebar-knob"></div>
         </div>
       </div>
 

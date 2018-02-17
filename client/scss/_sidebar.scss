@@ -1,22 +1,49 @@
+$size-sidebar-knob: 45px;
 
 .dev-sidebar {
   height: 100%;
   display: flex;
   h1 {
-    -webkit-margin-before: 0;
-    -webkit-margin-after: 0;
     margin-bottom: 5px;
   }
 }
 
+
+
 .dev-sidebar-handle {
-  width: 10px;
+  width: 8px;
   height: inherit;
+  position: relative;
   cursor: pointer;
+  background-color: black;
 }
+
+
+
+
+#sidebar-knob {
+  display: block;
+  position: absolute;
+  top: 50%;
+  width: $size-sidebar-knob - 18px;
+  height: $size-sidebar-knob;
+  background-color: black;
+  border-bottom-right-radius: $size-sidebar-knob * 2.5;
+  border-top-right-radius: $size-sidebar-knob * 2.5;
+}
+
 
 .hide-sidebar {
   display: none;
+}
+
+.hidden-sidebar:hover {
+  .dev-sidebar-handle {
+    width: 10px;
+  }
+  #sidebar-knob {
+    width: $size-sidebar-knob - 16px;
+  }
 }
 
 .dev-sidebar-content {
