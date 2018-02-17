@@ -5,7 +5,7 @@ class Code extends Component {
 
   render() {
     return (
-      <div>
+      <div className='dev-code'>
         <main>
           im an embedded text editor
         </main>
