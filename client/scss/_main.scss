@@ -1,4 +1,13 @@
 
 .dev-main {
   display: flex;
+  width: 100%;
+}
+
+.dev-content {
+  flex-grow: 1;
+}
+
+.dev-code {
+  flex-grow: 1;
 }

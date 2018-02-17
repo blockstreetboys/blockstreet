@@ -1,5 +1,6 @@
 @import 'main';
 @import 'code';
+@import 'sidebar';
 
 body {
   margin: 0;
@@ -9,6 +10,7 @@ body {
 
 .dev-body {
   display: flex;
+  height: 100vh;
   * {
     border: 1px solid black;
   }
