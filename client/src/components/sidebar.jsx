@@ -5,7 +5,8 @@ import { showDevSidebar, hideDevSidebar } from '../actions/ui_actions';
 
 const mapStateToProps = state => {
   return {
-    sidebarShown: state.ui.showDevSidebar
+    sidebarShown: state.ui.showDevSidebar,
+    stages: state.modules.spaceman.solidityStages
   };
 };
 
@@ -19,7 +20,6 @@ const mapDispatchToProps = dispatch => {
 class Sidebar extends Component {
   constructor(props) {
     super(props);
-    this.stages = [1,2,3,4];
 
     this.toggleSidebar = this.toggleSidebar.bind(this);
   }
@@ -42,9 +42,10 @@ class Sidebar extends Component {
 
     const sidebarClasses = ["dev-sidebar animated fadeInLeft"];
 
-    const stages = this.stages.map((stage)=>{
+    const stages = this.props.stages.map((stage, idx)=>{
       return <StageButton
-        key={stage}
+        key={idx}
+        idx={idx}
         stage={stage}/>;
     });
 
