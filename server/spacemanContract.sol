@@ -40,7 +40,7 @@ contract SpacemanContract {
     require(msg.sender == shipper);
     require(state == State.RECEIVED);
     state = State.WITHDRAWN;
-    shipper.transfer(this.balance);
     Withdraw(this.balance);
+    shipper.transfer(this.balance);
   }
 }
