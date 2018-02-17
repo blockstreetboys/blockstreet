@@ -2,14 +2,12 @@
 .dev-main {
   display: flex;
   width: 100%;
+  padding-bottom: 20px;
 }
 
-.dev-content {
+.dev-content, .dev-code {
   flex-grow: 1;
-  padding: 40px;
-}
+  margin: 40px;
+  padding: 15px;
 
-.dev-code {
-  flex-grow: 1;
-  padding: 40px;
 }

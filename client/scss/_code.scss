@@ -12,14 +12,18 @@
   justify-content: space-between;
 }
 
-.dev-button {
+#run-test-button, .dev-button {
   cursor: pointer;
-  padding: 20px;
+  padding: 7px 17px;
   text-align: center;
+  border-radius: 6px;
+  border: 1px solid $light-blue-color;
+  color: $light-blue-color;
+  font-size: 14px;
 }
 
-#run-test-button {
-  cursor: pointer;
-  padding: 20px;
-  text-align: center;
+#run-test-button:hover, .dev-button:hover{
+  color: white;
+  background-color: $light-blue-color;
+  font-size: 14px;
 }

@@ -1,6 +1,12 @@
-$navbar-height: 30px;
+$navbar-height: 45px;
 
 .navbar {
   height: $navbar-height;
-  padding: 20px;
+  padding: 18px;
+  border-bottom: 1px solid $main-line-color;
+
+  h1 {
+    font-family: 'Bungee Shade', cursive;
+    font-size: 40px;
+  }
 }

@@ -8,12 +8,17 @@ class StageButton extends Component {
   }
 
   handleClick() {
-    console.log("doing stuff");
+    this.props.changeStage(this.props.idx);
   }
 
   render() {
+    const stageClasses = ['dev-stage-button'];
+    if (this.props.activeStage === this.props.idx) {
+      stageClasses.push('dev-stage-active');
+    }
+
     return (
-      <div className='dev-stage-button' onClick={this.handleClick}>
+      <div className={stageClasses.join(" ")} onClick={this.handleClick}>
         stage {`${this.props.idx}`}
       </div>
 

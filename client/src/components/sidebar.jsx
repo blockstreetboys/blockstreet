@@ -1,19 +1,24 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import StageButton from './stage_button';
-import { showDevSidebar, hideDevSidebar } from '../actions/ui_actions';
+import {
+  showDevSidebar,
+  hideDevSidebar,
+  changeStage } from '../actions/ui_actions';
 
 const mapStateToProps = state => {
   return {
     sidebarShown: state.ui.showDevSidebar,
-    stages: state.modules.spaceman.solidityStages
+    stages: state.modules.spaceman.solidityStages,
+    activeStage: state.ui.activeStage
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
     showDevSidebar: () => dispatch(showDevSidebar()),
-    hideDevSidebar: () => dispatch(hideDevSidebar())
+    hideDevSidebar: () => dispatch(hideDevSidebar()),
+    changeStage: (stageNumber) => dispatch(changeStage(stageNumber)),
   };
 };
 
@@ -49,7 +54,9 @@ class Sidebar extends Component {
       return <StageButton
         key={idx}
         idx={idx}
-        stage={stage}/>;
+        stage={stage}
+        changeStage={this.props.changeStage}
+        activeStage={this.props.activeStage}/>;
     });
 
     return (

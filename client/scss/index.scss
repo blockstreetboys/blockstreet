@@ -1,10 +1,32 @@
+$accent-text-color: #51586a;
+$main-text-color: #cfd2da;
+$main-background-color: #252830;
+$light-blue-color: #1997c6;
+$main-line-color: #434857;
+$accent-background-color: #2c2d33;
+$dark-blue-color: #0f7dbd;
+
+
 @import 'navbar';
 @import 'main';
 @import 'code';
 @import 'sidebar';
+@import 'content';
+
+* {
+  background-color: transparent;
+  border: none;
+}
+
+html {
+  height: 100%;
+  background: $main-background-color;
+  color: $main-text-color;
+}
+
 
 #root {
-  height: 100vh;
+  height: 100%;
 
   main {
     height: 100%;
@@ -12,9 +34,10 @@
 }
 
 body {
+  height: 100%;
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: 'Roboto', sans-serif;
 
   h1 {
     -webkit-margin-before: 0;
@@ -24,8 +47,5 @@ body {
 
 .dev-body {
   display: flex;
-  height: 100%;
-  * {
-    border: 1px solid black;
-  }
+  height: 90%;
 }

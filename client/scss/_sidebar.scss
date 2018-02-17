@@ -3,8 +3,15 @@ $size-sidebar-knob: 45px;
 .dev-sidebar {
   height: 100%;
   display: flex;
+  background-color: $accent-background-color;
+  border-top: 7px solid #141417;
+  border-bottom: 7px solid #141417;
+
   h1 {
-    margin-bottom: 5px;
+    padding: 10px 0;
+    text-align: center;
+    font-size: 25px;
+    border-bottom: 1px solid $main-line-color;
   }
 }
 
@@ -15,7 +22,7 @@ $size-sidebar-knob: 45px;
   height: inherit;
   position: relative;
   cursor: pointer;
-  background-color: black;
+  background-color: #141417;
 }
 
 
@@ -27,7 +34,7 @@ $size-sidebar-knob: 45px;
   top: 50%;
   width: $size-sidebar-knob - 18px;
   height: $size-sidebar-knob;
-  background-color: black;
+  background-color: #141417;
   border-bottom-right-radius: $size-sidebar-knob * 2.5;
   border-top-right-radius: $size-sidebar-knob * 2.5;
 }
@@ -46,15 +53,17 @@ $size-sidebar-knob: 45px;
   }
 }
 
-.dev-sidebar-content {
-  padding: 10px 0;
-}
 
 .dev-stage-button {
   height: 18px;
-  width: 140px;
+  width: 180px;
   padding: 15px 0;
+  font-size: 20px;
   text-align: center;
   cursor: pointer;
+}
 
+.dev-stage-button:hover, .dev-stage-active {
+  background-color: $light-blue-color;
+  color: white;
 }

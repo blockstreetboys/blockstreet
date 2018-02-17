@@ -1,18 +1,20 @@
 .navbar {
-  height: 30px;
-  padding: 20px; }
+  height: 45px;
+  padding: 18px;
+  border-bottom: 1px solid #434857; }
+  .navbar h1 {
+    font-family: 'Bungee Shade', cursive;
+    font-size: 40px; }
 
 .dev-main {
   display: flex;
-  width: 100%; }
+  width: 100%;
+  padding-bottom: 20px; }
 
-.dev-content {
+.dev-content, .dev-code {
   flex-grow: 1;
-  padding: 40px; }
-
-.dev-code {
-  flex-grow: 1;
-  padding: 40px; }
+  margin: 40px;
+  padding: 15px; }
 
 .dev-code {
   display: flex;
@@ -25,28 +27,38 @@
   display: flex;
   justify-content: space-between; }
 
-.dev-button {
+#run-test-button, .dev-button {
   cursor: pointer;
-  padding: 20px;
-  text-align: center; }
+  padding: 7px 17px;
+  text-align: center;
+  border-radius: 6px;
+  border: 1px solid #1997c6;
+  color: #1997c6;
+  font-size: 14px; }
 
-#run-test-button {
-  cursor: pointer;
-  padding: 20px;
-  text-align: center; }
+#run-test-button:hover, .dev-button:hover {
+  color: white;
+  background-color: #1997c6;
+  font-size: 14px; }
 
 .dev-sidebar {
   height: 100%;
-  display: flex; }
+  display: flex;
+  background-color: #2c2d33;
+  border-top: 7px solid #141417;
+  border-bottom: 7px solid #141417; }
   .dev-sidebar h1 {
-    margin-bottom: 5px; }
+    padding: 10px 0;
+    text-align: center;
+    font-size: 25px;
+    border-bottom: 1px solid #434857; }
 
 .dev-sidebar-handle {
   width: 8px;
   height: inherit;
   position: relative;
   cursor: pointer;
-  background-color: black; }
+  background-color: #141417; }
 
 #sidebar-knob {
   display: block;
@@ -54,7 +66,7 @@
   top: 50%;
   width: 27px;
   height: 45px;
-  background-color: black;
+  background-color: #141417;
   border-bottom-right-radius: 112.5px;
   border-top-right-radius: 112.5px; }
 
@@ -67,31 +79,44 @@
 .hidden-sidebar:hover #sidebar-knob {
   width: 29px; }
 
-.dev-sidebar-content {
-  padding: 10px 0; }
-
 .dev-stage-button {
   height: 18px;
-  width: 140px;
+  width: 180px;
   padding: 15px 0;
+  font-size: 20px;
   text-align: center;
   cursor: pointer; }
 
+.dev-stage-button:hover, .dev-stage-active {
+  background-color: #1997c6;
+  color: white; }
+
+.dev-content {
+  background-color: #2c2d33; }
+
+* {
+  background-color: transparent;
+  border: none; }
+
+html {
+  height: 100%;
+  background: #252830;
+  color: #cfd2da; }
+
 #root {
-  height: 100vh; }
+  height: 100%; }
   #root main {
     height: 100%; }
 
 body {
+  height: 100%;
   margin: 0;
   padding: 0;
-  font-family: sans-serif; }
+  font-family: 'Roboto', sans-serif; }
   body h1 {
     -webkit-margin-before: 0;
     -webkit-margin-after: 0; }
 
 .dev-body {
   display: flex;
-  height: 100%; }
-  .dev-body * {
-    border: 1px solid black; }
+  height: 90%; }
