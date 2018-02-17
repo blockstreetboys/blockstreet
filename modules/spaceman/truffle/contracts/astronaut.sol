@@ -1,6 +1,6 @@
 pragma solidity ^0.4.13;
 
-contract SpacemanContract {
+contract AstronautContract {
   address public astronaut;
   address public shipper;
   address public arbiter;
@@ -17,7 +17,7 @@ contract SpacemanContract {
   event Received(uint256 time);
   event Withdraw(uint256 value);
 
-  function SpacemanContract(address _arbiter, address _shipper) public {
+  function AstronautContract(address _arbiter, address _shipper) public {
     arbiter = _arbiter;
     shipper = _shipper;
     astronaut = msg.sender;
