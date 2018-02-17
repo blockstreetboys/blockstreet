@@ -4,8 +4,8 @@ class Content extends Component {
 
   render() {
     return (
-      <div>hey im content
-
+      <div className='dev-content'>
+        hey im content
       </div>
 
     );

@@ -1,0 +1,19 @@
+
+.dev-sidebar {
+  height: 100%;
+  display: flex;
+}
+
+.dev-sidebar-handle {
+  width: 10px;
+  height: inherit;
+  cursor: pointer;
+}
+
+.hide-sidebar {
+  display: none;
+}
+
+.dev-sidebar-content {
+  padding: 5px;
+}

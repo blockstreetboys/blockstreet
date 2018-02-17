@@ -1,5 +1,31 @@
 .dev-main {
+  display: flex;
+  width: 100%; }
+
+.dev-content {
+  flex-grow: 1; }
+
+.dev-code {
+  flex-grow: 1; }
+
+.dev-code {
+  display: flex;
+  flex-direction: column; }
+
+.dev-sidebar {
+  height: 100%;
   display: flex; }
+
+.dev-sidebar-handle {
+  width: 10px;
+  height: inherit;
+  cursor: pointer; }
+
+.hide-sidebar {
+  display: none; }
+
+.dev-sidebar-content {
+  padding: 5px; }
 
 body {
   margin: 0;
@@ -7,6 +33,7 @@ body {
   font-family: sans-serif; }
 
 .dev-body {
-  display: flex; }
+  display: flex;
+  height: 100vh; }
   .dev-body * {
     border: 1px solid black; }

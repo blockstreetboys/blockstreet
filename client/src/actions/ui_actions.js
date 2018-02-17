@@ -10,6 +10,6 @@ export const showDevSidebar = () => {
 
 export const hideDevSidebar = () => {
   return {
-    type: HIDE_DEV_SIDEBAR 
+    type: HIDE_DEV_SIDEBAR
   };
 };
