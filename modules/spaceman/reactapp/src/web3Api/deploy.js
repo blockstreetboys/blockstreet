@@ -1,5 +1,5 @@
 import { abi, bytecode } from './AstronautContract';
-const web3 = require('TODO');
+const web3 = require('./web3config');
 
 const AstronautContract = web3.eth.contract(abi);
 let AstronautInstance;
