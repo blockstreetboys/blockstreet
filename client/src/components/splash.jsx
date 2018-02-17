@@ -17,7 +17,7 @@ class SplashPage extends Component {
 
   launchSpaceman(e) {
     this.props.getSpacemanData();
-    this.props.history.push("/development");
+    this.props.history.push("/tutorial");
     e.stopPropagation();
   }
 
