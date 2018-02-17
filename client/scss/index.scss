@@ -1,4 +1,5 @@
 $accent-text-color: #51586a;
+$lighter-gray-text-color: #9d9d9e;
 $main-text-color: #cfd2da;
 $main-background-color: #252830;
 $light-blue-color: #1997c6;
@@ -6,16 +7,18 @@ $main-line-color: #434857;
 $accent-background-color: #2c2d33;
 $dark-blue-color: #0f7dbd;
 
-
 @import 'navbar';
 @import 'main';
 @import 'code';
 @import 'sidebar';
 @import 'content';
+@import 'splash';
 
 * {
   background-color: transparent;
   border: none;
+  color: $main-text-color;
+  text-decoration: none;
 }
 
 html {

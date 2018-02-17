@@ -1,0 +1,39 @@
+
+.splash {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+
+  content {
+    width: 700px;
+    height: 400px;
+  }
+
+  p, h1 {
+    color: $lighter-gray-text-color;
+  }
+
+  h1 {
+    font-size: 42px;
+  }
+
+  p {
+    font-size: 20px;
+  }
+  span {
+    color: white;
+    font-family: 'Bungee Shade', cursive;
+    font-size: 75px;
+    letter-spacing: 5px;
+  }
+}
+
+.get-started {
+  margin-top: 20px;
+  height: 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}

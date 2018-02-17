@@ -91,16 +91,50 @@
   text-align: center;
   cursor: pointer; }
 
-.dev-stage-button:hover, .dev-stage-active {
+.dev-stage-button:hover {
   background-color: #1997c6;
+  color: white; }
+
+.dev-stage-active {
+  background-color: #0f7dbd;
   color: white; }
 
 .dev-content {
   background-color: #2c2d33; }
 
+.splash {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%; }
+  .splash content {
+    width: 700px;
+    height: 400px; }
+  .splash p, .splash h1 {
+    color: #9d9d9e; }
+  .splash h1 {
+    font-size: 42px; }
+  .splash p {
+    font-size: 20px; }
+  .splash span {
+    color: white;
+    font-family: 'Bungee Shade', cursive;
+    font-size: 75px;
+    letter-spacing: 5px; }
+
+.get-started {
+  margin-top: 20px;
+  height: 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center; }
+
 * {
   background-color: transparent;
-  border: none; }
+  border: none;
+  color: #cfd2da;
+  text-decoration: none; }
 
 html {
   height: 100%;
