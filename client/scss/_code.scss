@@ -1,6 +1,12 @@
 .dev-code {
   display: flex;
   flex-direction: column;
+  .code-editor {
+    flex-grow: 2.5;
+  }
+  .code-display {
+    flex-grow: 1;
+  }
 }
 
 .dev-code-button {

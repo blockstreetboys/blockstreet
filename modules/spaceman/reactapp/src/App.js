@@ -9,7 +9,6 @@ import Withdraw from './component/withdraw';
 class App extends Component {
   constructor (props) {
     super(props);
-
     this.nextStage = this.nextStage.bind(this);
     this.setAddress = this.setAddress.bind(this);
   }

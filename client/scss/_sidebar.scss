@@ -63,7 +63,12 @@ $size-sidebar-knob: 45px;
   cursor: pointer;
 }
 
-.dev-stage-button:hover, .dev-stage-active {
+.dev-stage-button:hover {
   background-color: $light-blue-color;
+  color: white;
+}
+
+.dev-stage-active {
+  background-color: $dark-blue-color;
   color: white;
 }

@@ -23,9 +23,18 @@ class SplashPage extends Component {
 
   render() {
     return (
-      <div>
-        <h1>BLOCKSTREETBOYS</h1>
-        <button onClick={this.launchSpaceman}>Get Started</button>
+      <div className='splash'>
+        <content>
+          <h1>Welcome to <span>BLOCKSTREET</span></h1>
+          <p>
+            Blockstreet is an interactive environment for end to end
+            development and testing of decentralized applications.
+          </p>
+          <div className='get-started'>
+            <div>New to block chain development?</div>
+            <button className='dev-button' onClick={this.launchSpaceman}>Get Started</button>
+          </div>
+        </content>
       </div>
     );
   }
