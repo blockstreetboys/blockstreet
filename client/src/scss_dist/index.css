@@ -3,18 +3,41 @@
   width: 100%; }
 
 .dev-content {
-  flex-grow: 1; }
+  flex-grow: 1;
+  padding: 40px; }
 
 .dev-code {
-  flex-grow: 1; }
+  flex-grow: 1;
+  padding: 40px; }
 
 .dev-code {
   display: flex;
   flex-direction: column; }
 
+.dev-code-button {
+  display: flex; }
+
+.dev-sub-buttons {
+  display: flex;
+  justify-content: space-between; }
+
+.dev-button {
+  cursor: pointer;
+  padding: 20px;
+  text-align: center; }
+
+#run-test-button {
+  cursor: pointer;
+  padding: 20px;
+  text-align: center; }
+
 .dev-sidebar {
   height: 100%;
   display: flex; }
+  .dev-sidebar h1 {
+    -webkit-margin-before: 0;
+    -webkit-margin-after: 0;
+    margin-bottom: 5px; }
 
 .dev-sidebar-handle {
   width: 10px;
@@ -25,7 +48,14 @@
   display: none; }
 
 .dev-sidebar-content {
-  padding: 5px; }
+  padding: 10px 0; }
+
+.dev-stage-button {
+  height: 18px;
+  width: 140px;
+  padding: 15px 0;
+  text-align: center;
+  cursor: pointer; }
 
 body {
   margin: 0;

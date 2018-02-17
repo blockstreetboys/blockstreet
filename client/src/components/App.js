@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Provider } from 'react-redux';
+import { Route, Link, Switch } from 'react-router-dom';
 import store from '../store';
 import '../scss_dist/index.css';
 import Sidebar from './sidebar';
