@@ -1,10 +1,15 @@
 const Web3 = require('web3');
+const ganache = require('ganache-cli');
+const provider = ganache.provider();
 
-if (typeof web3 !== 'undefined') {
-  web3 = new Web3(web3.currentProvider);
-} else {
-  // set the provider you want from Web3.providers
-  web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
-}
+export const web3 = new Web3(provider);
 
-export default web3;
+export const getAccounts = () => {
+  return web3.eth.getAccounts((error, result) => {
+    if (error) {
+      console.log(error);
+      return;
+    }
+    return result;
+  });
+};

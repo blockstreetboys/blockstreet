@@ -4,13 +4,19 @@ class Fund extends Component {
   constructor (props) {
     super(props);
 
-    this.active = false;
     this.fundContract = this.fundContract.bind(this);
+  }
+
+  componentDidUpdate() {
+    if (this.props.currentStage === 1) {
+      document.getElementById('fund').classList.add('active_stage');
+    }
   }
 
   fundContract(e) {
     e.preventDefault();
     if (this.props.currentStage === 1) {
+      document.getElementById('fund').classList.remove('active_stage');
       this.props.nextStage(this.props.currentStage + 1);
     }
   }
