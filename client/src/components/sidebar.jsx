@@ -14,7 +14,7 @@ class Sidebar extends Component {
 
     return (
       <div className='dev-sidebar'>
-        hey im a sidebar
+        <h1>Stages</h1>
         {stages}
       </div>
 

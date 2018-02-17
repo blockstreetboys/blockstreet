@@ -1,9 +1,10 @@
 import { createStore, combineReducers } from 'redux';
-import { saveState, loadState } from 'utilities/LocalStorageHelper'
+import { saveState, loadState } from 'utilities/LocalStorageHelper';
+import uiReducer from './reducers/ui_reducer';
 
 const reducer = combineReducers({
-    // reducers here
-})
+	ui: uiReducer,
+});
 
 const persistedState = loadState();
 
@@ -13,7 +14,7 @@ store.subscribe(() => {
 	// determines what is persisted in localstorage
 	saveState({
 
-	})
-})
+	});
+});
 
 export default store;
