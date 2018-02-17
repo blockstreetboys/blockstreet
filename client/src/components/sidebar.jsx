@@ -1,5 +1,18 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import StageButton from './stage_button';
+
+const mapStateToProps = state => {
+  return {
+
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+
+  };
+};
 
 class Sidebar extends Component {
   constructor(props) {
