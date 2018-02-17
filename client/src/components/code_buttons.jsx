@@ -3,13 +3,13 @@ import React, { Component } from 'react';
 class CodeButtons extends Component {
 
   render() {
-
-
     return (
-      <div>
+      <div className='dev-code-buttons'>
         <RunTestButton />
-        <button className='dev-button'>Reset Code</button>
-        <button className='dev-button'>Show Solution</button>
+        <div className='dev-sub-buttons'>
+          <button className='dev-button'>Reset Code</button>
+          <button className='dev-button'>Show Solution</button>
+        </div>
       </div>
     );
   }

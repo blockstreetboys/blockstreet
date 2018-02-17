@@ -14,7 +14,7 @@ class StageButton extends Component {
   render() {
     return (
       <div className='dev-stage-button' onClick={this.handleClick}>
-        stageButton
+        stage {`${this.props.idx}`}
       </div>
 
     );
