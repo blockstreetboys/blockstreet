@@ -2,6 +2,11 @@
 .dev-sidebar {
   height: 100%;
   display: flex;
+  h1 {
+    -webkit-margin-before: 0;
+    -webkit-margin-after: 0;
+    margin-bottom: 5px;
+  }
 }
 
 .dev-sidebar-handle {
@@ -15,5 +20,14 @@
 }
 
 .dev-sidebar-content {
-  padding: 5px;
+  padding: 10px 0;
+}
+
+.dev-stage-button {
+  height: 18px;
+  width: 140px;
+  padding: 15px 0;
+  text-align: center;
+  cursor: pointer;
+
 }

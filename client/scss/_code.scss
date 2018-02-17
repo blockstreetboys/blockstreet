@@ -2,3 +2,24 @@
   display: flex;
   flex-direction: column;
 }
+
+.dev-code-button {
+  display: flex;
+}
+
+.dev-sub-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.dev-button {
+  cursor: pointer;
+  padding: 20px;
+  text-align: center;
+}
+
+#run-test-button {
+  cursor: pointer;
+  padding: 20px;
+  text-align: center;
+}

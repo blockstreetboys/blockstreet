@@ -1,11 +1,13 @@
-import AstronautContract from './contract';
+import { abi, bytecode } from './AstronautContract';
+const web3 = require('./web3config');
 
-const deploy = (arbiterAddress, shipperAddress, astronautAddress) => {
+const AstronautContract = web3.eth.contract(abi);
+let AstronautInstance;
+
+const deploy = (arbiterAddress, shipperAddress, astronautAddress, callback) => {
   AstronautContract.new(arbiterAddress, shipperAddress, {
-    from: astronautAddress
-  });
-  return new Promise(function(resolve, reject) {
-
-      1000
-  });
+    data: bytecode,
+    from: astronautAddress,
+    gas: 0
+  }, callback);
 };
