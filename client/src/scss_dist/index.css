@@ -1,0 +1,12 @@
+.dev-main {
+  display: flex; }
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif; }
+
+.dev-body {
+  display: flex; }
+  .dev-body * {
+    border: 1px solid black; }
