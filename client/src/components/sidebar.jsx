@@ -1,4 +1,4 @@
-import { Component } from 'react';
+import React, { Component } from 'react';
 
 class Sidebar extends Component {
 
@@ -8,3 +8,5 @@ class Sidebar extends Component {
     );
   }
 }
+
+export default Sidebar;
