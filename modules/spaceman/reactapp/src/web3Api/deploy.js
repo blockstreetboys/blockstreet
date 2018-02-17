@@ -10,3 +10,5 @@ const deploy = (arbiterAddress, shipperAddress, astronautAddress, callback) => {
     gas: 0
   }, callback);
 };
+
+export default deploy;
