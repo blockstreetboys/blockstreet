@@ -4,6 +4,10 @@ body {
   font-family: sans-serif;
 }
 
+.active_stage {
+  background: #332640;
+}
+
 .spaceman {
   height: 100vh;
   width: 100vw;
@@ -14,9 +18,31 @@ body {
 
 .stage {
   height: 20%;
+  border: 1px solid #3ee7ad;
+  border-top: none;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+.deploy_stage {
+  background: #332640;
+  margin-top: 2%;
+  border-top: 1px solid #3ee7ad;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+
+.withdraw_stage {
+  margin-bottom: 2%;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
 }
 
 .button_only {
+  margin-left: 10%;
+  margin-right: 10%;
+  border: 1px solid #3ee7ad;
+  border-top: none;
   height: 20%;
   display: flex;
   justify-content: center;

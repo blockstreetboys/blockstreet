@@ -2,14 +2,29 @@ import React , { Component } from 'react';
 // import Web3 from '../web3_api';
 
 class Deploy extends Component {
-  deployContract() {
-    // deploy contract to blockchain
-    // on success set next component to active
+  constructor (props) {
+    super(props);
+
+    this.active = true;
+    this.deployContract = this.deployContract.bind(this);
+  }
+
+  deployContract(e) {
+    e.preventDefault();
+    if (this.props.currentStage === 0) {
+      this.active = false;
+      this.props.nextStage(this.props.currentStage + 1);
+    }
   }
 
   render() {
+    let stage;
+    if (!this.active) {
+      stage = document.getElementById('deploy');
+      stage.style.background = "#202020";
+    }
     return (
-      <div className="stage">
+      <div id="deploy" className="stage deploy_stage">
         <form className="form_container" onSubmit={this.deployContract} >
           <div className="button_container">
             <button className='button_input'>Deploy Contract</button>
