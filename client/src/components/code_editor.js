@@ -22,9 +22,12 @@ class CodeEditor extends Component {
   }
 
   updateStoreCode(type) {
-    return debounce((editor)=>{
-      this.props.updateCode(editor.getValue(), this.props.activeStage);
-    }, 1000).bind(this);
+    if(type !== "testCases") {
+      return debounce((editor)=>{
+        this.props.updateCode(editor.getValue(), this.props.activeStage);
+      }, 1000).bind(this);
+    }
+    return () => {}
   }
 
   componentDidMount() {
@@ -47,7 +50,6 @@ class CodeEditor extends Component {
     this.codeMirror.on('changes', this.updateStoreCode(type));
     this.props.updateCompCodeState({[type]: this.codeMirror.getValue()});
 
-    console.log(this.props.currentModule, type)
     this.codeMirror.setValue(this.props.currentModule[type] || "");
   }
 
