@@ -4,34 +4,31 @@ const bodyParser = require('body-parser');
 const port = process.env.PORT || 4049;
 const Archiver = require('archiver');
 
-const fs = require('fs-extra')
-
 const routesPrefix = '/api';
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.get(`${routesPrefix}/zip/`, function(request, response) {
-    // get the contract from the request
+app.put(`${routesPrefix}/zip/`, function(request, response) {
+    const { contract, testCases } = request.body;
 
     response.writeHead(200, {
         'Content-Type': 'application/zip',
-        'Content-disposition': 'attachment; filename=myFile.zip'
+        'Content-disposition': 'attachment; filename=astronaut.zip'
     });
 
     let zip = Archiver('zip');
 
     zip.pipe(response);
 
-    let id = Date.now();
-    let temp = `../temp/reactapp${id}`;
-    fs.copySync('../modules/spaceman/reactapp', temp)
+    zip.directory('../modules/spaceman/reactapp/', 'reactapp');
+    zip.directory('../modules/spaceman/truffle/migrations', 'reactapp/truffle/migrations');
+    zip.directory('../modules/spaceman/truffle/tests', 'reactapp/truffle/tests');
 
-    // here we need to add the contract to truffle
+    zip.file('../modules/spaceman/truffle/contracts/Migrations.sol', { name: 'reactapp/truffle/contracts/Migrations.sol' });
 
-    zip.directory(temp, 'reactapp');
-
-    fs.removeSync(temp);
+    zip.append(contract, { name: 'reactapp/truffle/contracts/astronaut.sol' })
+    zip.append(testCases, { name: 'reactapp/truffle/tests/astronaut.js' })
 
     zip.finalize();
 });
