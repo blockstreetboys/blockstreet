@@ -1,28 +1,53 @@
+html {
+  height: 100%;
+  width: 100%;
+}
+
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: inherit;
+  height: 100%;
+  width: 100%;
 }
 
 button:focus {
   outline: 0;
 }
 
+button {
+  margin-left: 10%;
+}
+
+#root {
+  height: 100%;
+  width: 100%;
+}
+
 .active_stage {
   background: #332640;
 }
 
+.page_contents {
+  min-height: 100%;
+  width: 100%;
+  background: #202020;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .spaceman {
-  height: 100vh;
-  width: 100vw;
+  width: 80%;
   display: flex;
   flex-direction: column;
-  background: #202020;
 }
 
 .stage {
-  height: 20%;
-  border: 1px solid #3ee7ad;
+  width: 80%;
+  font-family: 'Slabo 27px', serif;
+  border-left: 1px solid #3ee7ad;
+  border-right: 1px solid #3ee7ad;
   border-top: none;
   margin-left: 10%;
   margin-right: 10%;
@@ -37,16 +62,15 @@ button:focus {
 
 .withdraw_stage {
   margin-bottom: 2%;
+  border-bottom: 1px solid #3ee7ad;
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
 }
 
 .button_only {
-  margin-left: 10%;
-  margin-right: 10%;
-  border: 1px solid #3ee7ad;
-  border-top: none;
-  height: 20%;
+  width: 80%;
+  border-left: 1px solid #3ee7ad;
+  border-right: 1px solid #3ee7ad;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -63,7 +87,7 @@ button:focus {
 }
 
 .button_container {
-  margin-left: 20%;
+  /* margin-left: 20%; */
   display: flex;
   align-items: center;
 }
@@ -89,10 +113,13 @@ button:hover {
   display: inline-grid;
   margin-left: 20%;
   align-items: center;
+  justify-items: right;
+  min-width: 310px;
+  /* align-content: right; */
 }
 
 .form_container {
-  height: 100%;
+  min-height: 150px;
   display: flex;
   color: #3ee7ad;
 }

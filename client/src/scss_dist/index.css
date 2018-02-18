@@ -8,21 +8,26 @@
 
 .dev-main {
   display: flex;
-  width: 100%;
-  padding-bottom: 20px; }
+  width: 100%; }
 
 .dev-content, .dev-code {
-  flex-grow: 1;
-  margin: 40px;
-  padding: 15px; }
+  margin: 40px; }
 
 .dev-code {
   display: flex;
   flex-direction: column; }
-  .dev-code .code-editor {
-    flex-grow: 2.5; }
+  .dev-code .CodeMirror {
+    flex-grow: 2.5;
+    margin: 0 0 20px 0; }
   .dev-code .code-display {
     flex-grow: 1; }
+
+.dev-content {
+  padding: 15px;
+  flex-grow: 1; }
+
+.dev-code {
+  flex-grow: 1.75; }
 
 .dev-code-button {
   display: flex; }
@@ -139,7 +144,8 @@
 html {
   height: 100%;
   background: #252830;
-  color: #cfd2da; }
+  color: #cfd2da;
+  min-height: 900px; }
 
 #root {
   height: 100%; }

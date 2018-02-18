@@ -5,7 +5,7 @@ class CodeButtons extends Component {
   render() {
     return (
       <div className='dev-code-buttons'>
-        <RunTestButton />
+        <RunTestButton runTest={this.props.runTest}/>
         <div className='dev-sub-buttons'>
           <button className='dev-button'>Reset Code</button>
           <button className='dev-button'>Show Solution</button>
@@ -16,9 +16,18 @@ class CodeButtons extends Component {
 }
 
 class RunTestButton extends Component {
+  constructor(props) {
+    super(props);
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick(e) {
+    this.props.runTest(e);
+  }
+
   render() {
     return (
-      <button id='run-test-button'>Run Test</button>
+      <button id='run-test-button' onClick={this.handleClick}>Run Test</button>
     );
   }
 }
