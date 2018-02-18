@@ -24,7 +24,7 @@ button:focus {
 
 .main-container {
   background-image: url("../images/outerspace.jpg");
-  min-height: 1100px;
+  min-height: 1300px;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -41,7 +41,9 @@ button:focus {
   justify-content: center;
   align-items: center;
   position: relative;
-  box-shadow: 0 0 20px 2px rgba(0,0,0,.8);
+  box-shadow: 0 0 40px 0px black;
+  border-radius: 15px;
+  overflow: hidden;
 }
 
 .stage {
@@ -50,13 +52,16 @@ button:focus {
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  height: 180px;
+  height: 200px;
   font-size: 14px;
   color: #cfd2da;
-  border-left: 1px solid #434857;
-  border-right: 1px solid #434857;
   border-top: none;
   padding: 25px;
+}
+
+.deploy-stage {
+  height: 250px;
+
 }
 
 .stage-left {
@@ -106,20 +111,17 @@ button:hover {
   background-color: #1997c6;
 }
 
-.deploy-stage {
-  border-top: 1px solid #434857;
-  border-top-left-radius: 15px;
-  border-top-right-radius: 15px;
-}
-
-.withdraw_stage {
-  border-bottom: 1px solid #434857;
-  border-bottom-left-radius: 15px;
-  border-bottom-right-radius: 15px;
+.stage-right label {
+  height: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 10px 0;
 }
 
 .address {
-  background-color: white;
+  background-color: #383a42;
+  color: #bdbdc1;
   padding: 5px;
   border-radius: 7px;
 }
@@ -130,22 +132,14 @@ button:hover {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  background-color: white;
+  background-color: #383a42;
+  opacity: .98;
   color: black;
   border-top: 1px solid black;
   border-top-right-radius: 5px;
   border-top-left-radius: 5px;
   position: fixed;
   bottom: 0px;
-}
-
-.user-info {
-  width: 70%;
-  background-color: white;
-  color: black;
-  border-bottom: none;
-  border-left: none;
-  border-right: none;
 }
 
 .app-state {
@@ -159,11 +153,13 @@ button:hover {
   padding: 10px;
   text-align: center;
   font-size: 18px;
+  color: #bdbdc1;
 }
 
 .app-state h3 {
   font-size: 24px;
   text-align: center;
+  color: #1997c6;
 }
 
 .stage-prompt {
