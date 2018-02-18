@@ -38,7 +38,7 @@ class Deploy extends Component {
             // Move on to next step
             document.getElementById('deploy').classList.remove('active_stage');
             this.setGlobalState('currentStage', this.state.currentStage + 1);
-            
+
           }).catch(error => console.log(error));
         });
 
