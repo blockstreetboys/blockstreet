@@ -1,5 +1,5 @@
 import React , { Component } from 'react';
-import deployContract from '../web3Api/deploy';
+import deploy from '../web3Api/deploy';
 import { watchTransaction } from '../utilities/transactionPoll';
 import AstronautApi from '../web3Api/astronautApi';
 
@@ -22,9 +22,10 @@ class Deploy extends Component {
   }
 
   deployContract(e) {
+    console.log("DEPLOYING...");
     e.preventDefault();
     if (this.state.currentStage === "STAGE-0") {
-      deployContract(this.state.arbiterAddress, this.state.shipperAddress,
+      deploy(this.state.arbiterAddress, this.state.shipperAddress,
         this.state.astronautAddress,
         (err, contract) => {
           if (err) {
@@ -60,17 +61,18 @@ class Deploy extends Component {
             <button className='button_input'>Deploy Contract</button>
           </div>
           <div className='input_fields'>
-            <label>Your Address</label>
+            <label>Your Address
               <input onChange={this.handleChange('astronautAddress')}
                 value={this.state.astronautAddress}/>
-            <label>Alien Auto Parts Address
             </label>
+            <label>Alien Auto Parts Address
               <input onChange={this.handleChange('shipperAddress')}
                 value={this.state.shipperAddress}/>
-            <label>Arbiter Address
             </label>
+            <label>Arbiter Address
               <input onChange={this.handleChange('arbiterAddress')}
                 value={this.state.arbiterAddress}/>
+            </label>
           </div>
         </form>
       </div>
