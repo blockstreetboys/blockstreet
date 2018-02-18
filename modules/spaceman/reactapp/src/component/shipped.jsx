@@ -24,9 +24,13 @@ class Shipped extends Component {
 
   render() {
     return (
-      <div id="shipped" className='button_only'>
-          <button onClick={this.shipGoods}
-            className='button_static'>Ship Goods</button>
+      <div id="shipped" className='stage'>
+        <div className="form_container">
+          <div className="button_container">
+            <button onClick={this.shipGoods}
+              className='button_static'>Ship Goods</button>
+          </div>
+        </div>
       </div>
     );
   }

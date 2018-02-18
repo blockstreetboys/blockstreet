@@ -1,4 +1,4 @@
-import web3 from './web3';
+import web3 from '../web3Api/web3Config';
 
 function _transactionTimeout(...args) {
     const [ hash, resolve, reject ] = args
