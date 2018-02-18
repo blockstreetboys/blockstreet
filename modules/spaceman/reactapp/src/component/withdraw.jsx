@@ -8,15 +8,19 @@ class Withdraw extends Component {
     this.withdrawFunds = this.withdrawFunds.bind(this);
   }
 
+  componentWillReceiveProps(nextProps) {
+    this.setState(nextProps.globalProps.state);
+  }
+
   componentDidUpdate() {
-    if (this.state.currentStage === 4) {
+    if (this.state.currentStage === "STAGE-4") {
       document.getElementById('withdraw').classList.add('active_stage');
     }
   }
 
   withdrawFunds(e) {
     e.preventDefault();
-    if (this.state.currentStage === 4) {
+    if (this.state.currentStage === "STAGE-4") {
       this.state.contract.withdraw(this.state.shipperAddress, (err, res) => {
         if (err) {
           console.log(err);
@@ -25,7 +29,7 @@ class Withdraw extends Component {
         console.log(`FUNDS WITHDRAWN`);
         console.log(res);
         document.getElementById('withdraw').classList.remove('active_stage');
-        this.props.nextStage(this.state.currentStage + 1);
+        this.setGlobalState('currentStage', "COMPLETE");
         this.setGlobalState('balance', 0);
       });
     }

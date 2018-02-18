@@ -8,17 +8,23 @@ class Shipped extends Component {
     this.shipGoods = this.shipGoods.bind(this);
   }
 
+
+  componentWillReceiveProps(nextProps) {
+    this.setState(nextProps.globalProps.state);
+  }
+
   componentDidUpdate() {
-    if (this.state.currentStage === 2) {
+    if (this.state.currentStage === "STAGE-2") {
       document.getElementById('shipped').classList.add('active_stage');
     }
   }
 
   shipGoods(e) {
     e.preventDefault();
-    if (this.state.currentStage === 2) {
+    if (this.state.currentStage === "STAGE-2") {
+      console.log("GOODS SHIPPED!");
       document.getElementById('shipped').classList.remove('active_stage');
-      this.setGlobalState('currentStage', this.state.currentStage + 1);
+      this.setGlobalState('currentStage', "STAGE-3");
     }
   }
 

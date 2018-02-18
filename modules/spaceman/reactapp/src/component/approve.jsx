@@ -8,15 +8,19 @@ class Approve extends Component {
     this.approveTransaction = this.approveTransaction.bind(this);
   }
 
+  componentWillReceiveProps(nextProps) {
+    this.setState(nextProps.globalProps.state);
+  }
+
   componentDidUpdate() {
-    if (this.props.currentStage === 3) {
+    if (this.state.currentStage === "STAGE-3") {
       document.getElementById('approve').classList.add('active_stage');
     }
   }
 
   approveTransaction(e) {
     e.preventDefault();
-    if (this.props.currentStage === 3) {
+    if (this.state.currentStage === "STAGE-3") {
       this.state.contract.receive(this.state.arbiterAddress, (err, res) => {
         if (err) {
           console.log(err);
@@ -25,7 +29,7 @@ class Approve extends Component {
         console.log(`TRANSACTION APPROVED`);
         console.log(res);
         document.getElementById('approve').classList.remove('active_stage');
-        this.setGlobalState('currentStage', this.state.currentStage + 1);
+        this.setGlobalState('currentStage', "STAGE-4");
       });
     }
   }

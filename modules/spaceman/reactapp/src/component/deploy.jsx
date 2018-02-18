@@ -12,7 +12,7 @@ class Deploy extends Component {
   }
 
   componentDidMount() {
-    if (this.state.currentStage === 0) {
+    if (this.state.currentStage === "STAGE-0") {
       document.getElementById('deploy').classList.add('active_stage');
     }
   }
@@ -23,7 +23,7 @@ class Deploy extends Component {
 
   deployContract(e) {
     e.preventDefault();
-    if (this.state.currentStage === 0) {
+    if (this.state.currentStage === "STAGE-0") {
       deployContract(this.state.arbiterAddress, this.state.shipperAddress,
         this.state.astronautAddress,
         (err, contract) => {
@@ -35,12 +35,11 @@ class Deploy extends Component {
             .then(contractObject => {
             this.setGlobalState('contract',
             new AstronautApi(contractObject.contractAddress));
-            console.log(`CONTRACT SUCCESSFULLY DEPLOYED AT
-              ${contractObject.contractAddress}` );
             // Move on to next step
             document.getElementById('deploy').classList.remove('active_stage');
-            this.setGlobalState('currentStage', this.state.currentStage + 1);
-
+            this.setGlobalState('currentStage', "STAGE-1");
+            console.log(`CONTRACT SUCCESSFULLY DEPLOYED AT
+              ${contractObject.contractAddress}` );
           }).catch(error => console.log(error));
         });
 

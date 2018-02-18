@@ -10,7 +10,7 @@ class Fund extends Component {
   }
 
   componentDidUpdate() {
-    if (this.state.currentStage === 1) {
+    if (this.state.currentStage === "STAGE-1") {
       document.getElementById('fund').classList.add('active_stage');
     }
   }
@@ -21,7 +21,7 @@ class Fund extends Component {
 
   fundContract(e) {
     e.preventDefault();
-    if (this.state.currentStage === 1) {
+    if (this.state.currentStage === "STAGE-1") {
       this.state.contract.pay(this.state.astronautAddress,
         this.state.balance, (err, res) => {
           if (err) {
@@ -33,7 +33,7 @@ class Fund extends Component {
 
           // Move to next stage
           document.getElementById('fund').classList.remove('active_stage');
-          this.setGlobalState('currentStage', this.state.currentStage + 1);
+          this.setGlobalState('currentStage', "STAGE-2");
         });
     }
   }
