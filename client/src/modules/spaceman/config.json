@@ -59,7 +59,7 @@
     {
       "type": "deployment",
       "title": "Testnet",
-      "instructions": "We'll help you deploy to the testnet!"
+      "instructions": "\n# Deployment Time!\n\nAre you excited? I'm excited. It's time to go to the blockchain!\n\nLet's deploy to a testnet of your choice. It can be any of the \navailable testnets, so pick whichever one you have Ether on or\nwhere you can find some testnet ether.\n\n## Faucets\n\nHere are some faucects to go check out for the different networks:\n\n- https://github.com/kovan-testnet/faucet\n- http://faucet.ropsten.be:3001/\n- https://faucet.rinkeby.io/\n\nThey can be pretty tricky at times, so best of luck on your hunt ;)\n\n## EtherScan\n\nOnce your contract is deployed to etherscan you'll be able to take\nthe code from the previous example and verify it so you can see your\nsource code visualized out on the blockchain!"
     },
     {
       "type": "code",
@@ -75,7 +75,7 @@
     {
       "type": "completion",
       "title": "Blastoff!",
-      "instructions": "Congratulations, now you can download your application!"
+      "instructions": "\n# WOW. You did it.\n\nWe're impressed. Like really.\n\nGreat job, astronaut. You're going home. \n\nBe sure to take your source code with you in the framework of your choice. \nThen use that as a starting point to create even greater apps!\n\nDon't forget to check back at Blockstreet for even more exciting modules."
     }
   ]
 }
