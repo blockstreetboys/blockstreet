@@ -12,8 +12,10 @@ class CodeEditor extends Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
-  handleChange(editor) {
-    this.props.updateCodeState(editor.getValue());
+  handleChange(type) {
+    return (editor) => {
+      this.props.updateCodeState({[type]: editor.getValue()});
+    };
   }
 
   componentDidMount() {
@@ -33,7 +35,8 @@ class CodeEditor extends Component {
 
     this.codeMirror.setValue(this.value);
 
-    this.codeMirror.on('changes', this.handleChange);
+    this.codeMirror.on('changes', this.handleChange(this.props.type));
+    this.props.updateCodeState({[this.props.type]: this.codeMirror.getValue()});
 
   }
 
