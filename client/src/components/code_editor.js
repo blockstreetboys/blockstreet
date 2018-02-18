@@ -23,9 +23,8 @@ class CodeEditor extends Component {
   }
 
   updateStoreCode(type) {
-    debugger
     return debounce((editor)=>{
-      debugger
+      
       this.props.updateCode(editor.getValue(), this.props.activeStage);
     }, 1000).bind(this);
   }
