@@ -30,7 +30,7 @@ button:focus {
 }
 
 .stages {
-  margin: 70px 0 70px 0;
+  margin: 70px 0 150px 0;
   min-width: 700px;
   max-width: 1200px;
   width: 60%;
@@ -122,16 +122,28 @@ button:hover {
   border-radius: 7px;
 }
 
-.user-info {
+.user-info-wrapper {
+  width: 100%;
   display: flex;
   justify-content: space-around;
   align-items: center;
   background-color: white;
   color: black;
   border-top: 1px solid black;
-  border-radius: 15px;
+  border-bottom: none;
+  border-left: none;
+  border-right: none;
   position: fixed;
   bottom: 0px;
+}
+
+.user-info {
+  width: 70%;
+  background-color: white;
+  color: black;
+  border-bottom: none;
+  border-left: none;
+  border-right: none;
 }
 
 .app-state {

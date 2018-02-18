@@ -44,17 +44,19 @@ const UserInfo = ({ globalProps }) => {
     state.contract.address : " - - - ";
 
   return (
-    <div className="stage user-info">
-      <div className="app-state">
-        <h3>Active Party</h3>
-        <p>{`${currentParty}`}</p>
-        <h3>Address</h3>
-        <p>{`${currentAddress}`}</p>
-        <h3>Contract Address</h3>
-        <p>{`${contractAddress}`}</p>
-      </div>
-      <div className="stage-prompt">
-        <p>{currentPrompt}</p>
+    <div className="user-info-wrapper">
+      <div className="stage user-info">
+        <div className="app-state">
+          <h3>Active Party</h3>
+          <p>{`${currentParty}`}</p>
+          <h3>Address</h3>
+          <p>{`${currentAddress}`}</p>
+          <h3>Contract Address</h3>
+          <p>{`${contractAddress}`}</p>
+        </div>
+        <div className="stage-prompt">
+          <p>{currentPrompt}</p>
+        </div>
       </div>
     </div>
   );
