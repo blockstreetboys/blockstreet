@@ -28,11 +28,9 @@ class Code extends Component {
 
   updateCodeState(code) {
     this.setState(code);
-    console.log(this.state);
   }
 
   runTest () {
-    debugger
     runCode(this.state, this.ref);
   }
 
