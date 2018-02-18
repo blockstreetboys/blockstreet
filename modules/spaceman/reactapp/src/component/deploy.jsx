@@ -35,11 +35,13 @@ class Deploy extends Component {
             .then(contractObject => {
             this.setGlobalState('contract',
             new AstronautApi(contractObject.contractAddress));
+            // Move on to next step
+            document.getElementById('deploy').classList.remove('active_stage');
+            this.setGlobalState('currentStage', this.state.currentStage + 1);
+            
           }).catch(error => console.log(error));
         });
 
-      document.getElementById('deploy').classList.remove('active_stage');
-      this.setGlobalState('currentStage', this.state.currentStage + 1);
     }
   }
 

@@ -3,8 +3,8 @@ import React , { Component } from 'react';
 class Shipped extends Component {
   constructor (props) {
     super(props);
-
-    this.active = false;
+    this.state = props.globalProps.state;
+    this.setGlobalState = props.globalProps.setGlobalState;
     this.shipGoods = this.shipGoods.bind(this);
   }
 
@@ -18,7 +18,7 @@ class Shipped extends Component {
     e.preventDefault();
     if (this.props.currentStage === 2) {
       document.getElementById('shipped').classList.remove('active_stage');
-      this.props.nextStage(this.props.currentStage + 1);
+      this.set(this.props.currentStage + 1);
     }
   }
 

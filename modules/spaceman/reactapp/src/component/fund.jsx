@@ -30,10 +30,11 @@ class Fund extends Component {
           }
           console.log(`PAYMENT SUCCESS`);
           console.log(res);
-        });
 
-      document.getElementById('fund').classList.remove('active_stage');
-      this.setGlobalState('currentStage', this.state.currentStage + 1);
+          // Move to next stage
+          document.getElementById('fund').classList.remove('active_stage');
+          this.setGlobalState('currentStage', this.state.currentStage + 1);
+        });
     }
   }
 

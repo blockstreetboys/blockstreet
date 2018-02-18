@@ -12,7 +12,7 @@ class App extends Component {
     super(props);
     this.state = {
       currentStage: 0,
-      contract: {},//SET THE ASTRONAUT API HERE
+      contract: {},
       balance: 0, 
       arbiterAddress: "",
       shipperAddress: "",
@@ -29,24 +29,15 @@ class App extends Component {
     const globalProps = {
       state: this.state,
       setGlobalState: this.setGlobalState,
-      nextStage: this.nextStage
     }
+    
     return (
       <div className="spaceman">
         <Deploy globalProps={globalProps}/>
         <Fund globalProps={globalProps}/>
-        <Shipped
-          state={this.state}
-          currentStage={this.state.currentStage}
-          nextStage={this.nextStage}/>
-        <Approve 
-          state={this.state}
-          currentStage={this.state.currentStage}
-          nextStage={this.nextStage}/>
-        <Withdraw
-          state={this.state}
-          currentStage={this.state.currentStage}
-          nextStage={this.nextStage}/>
+        <Shipped globalProps={globalProps}/>
+        <Approve globalProps={globalProps}/>
+        <Withdraw globalProps={globalProps}/>
       </div>
     );
   }
