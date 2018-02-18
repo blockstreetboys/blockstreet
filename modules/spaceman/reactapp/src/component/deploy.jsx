@@ -1,12 +1,13 @@
 import React , { Component } from 'react';
-import DeployWeb3 from '../web3Api/deploy';
+import deployContract from '../web3Api/deploy';
 import { watchTransaction } from '../utilities/transactionPoll';
+import AstronautApi from '../web3Api/astronautApi';
 
 class Deploy extends Component {
-  constructor (props) {
+  constructor(props) {
     super(props);
-
-    this.state = this.props.state;
+    this.state = props.globalProps.state;
+    this.setGlobalState = props.globalProps.setGlobalState;
     this.deployContract = this.deployContract.bind(this);
   }
 
@@ -16,33 +17,40 @@ class Deploy extends Component {
     }
   }
 
+  componentWillReceiveProps(nextProps) {
+    this.setState(nextProps.globalProps.state);
+  }
+
   deployContract(e) {
     e.preventDefault();
     if (this.state.currentStage === 0) {
-      debugger
-      DeployWeb3(this.state.arbiterAddress, this.state.shipperAddress,
+      deployContract(this.state.arbiterAddress, this.state.shipperAddress,
         this.state.astronautAddress,
-        (err, receipt) => {
+        (err, contract) => {
           if (err) {
             console.log(err);
             return;
           }
-          return watchTransaction(receipt).then(contractObject => {
-            this.props.setAddress(contractObject);
-          }).catch(err => console.log(err));
+          return watchTransaction(contract.transactionHash)
+            .then(contractObject => {
+            this.setGlobalState('contract',
+            new AstronautApi(contractObject.contractAddress));
+            // Move on to next step
+            document.getElementById('deploy').classList.remove('active_stage');
+            this.setGlobalState('currentStage', this.state.currentStage + 1);
+
+          }).catch(error => console.log(error));
         });
 
-      document.getElementById('deploy').classList.remove('active_stage');
-      this.props.nextStage(this.state.currentStage + 1);
     }
   }
 
   handleChange(field) {
     return (e) => {
-      this.setState({ [field]: e.target.value });
+      this.setGlobalState(field, e.target.value);
     };
   }
-  // Add in another account for sender
+
   render() {
     return (
       <div id="deploy" className="stage deploy_stage">

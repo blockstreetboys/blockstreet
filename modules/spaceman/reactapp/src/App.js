@@ -10,51 +10,38 @@ import web3 from './web3Api/web3Config';
 class App extends Component {
   constructor (props) {
     super(props);
-    this.nextStage = this.nextStage.bind(this);
-    this.setAddress = this.setAddress.bind(this);
-  }
-
-  componentDidMount() {
-    this.setState({
+    this.state = {
       currentStage: 0,
-      contract: null,
-      arbiterAddress: web3.eth.accounts[1],
-      shipperAddress: web3.eth.accounts[2],
+      contract: {},
+      balance: 0,
+      arbiterAddress: "",
+      shipperAddress: "",
       astronautAddress: web3.eth.accounts[0]
-    });
+    };
+    this.setGlobalState = this.setGlobalState.bind(this);
   }
 
-  nextStage (nextStage) {
-    this.setState({currentStage: nextStage});
-  }
-
-  setAddress(contractObject) {
-    debugger
-    this.setState({contract: contractObject});
+  setGlobalState(key, value) {
+    this.setState( {[key]: value});
   }
 
   render() {
-    if (this.state) {
-      return (
-        <div className="page_contents">
-          <div className="spaceman">
-            <Deploy state={this.state}
-              nextStage={this.nextStage}
-              setAddress={this.setAddress}/>
-            <Fund currentStage={this.state.currentStage}
-              nextStage={this.nextStage}/>
-            <Shipped currentStage={this.state.currentStage}
-              nextStage={this.nextStage}/>
-            <Approve currentStage={this.state.currentStage}
-              nextStage={this.nextStage}/>
-            <Withdraw currentStage={this.state.currentStage}
-              nextStage={this.nextStage}/>
-          </div>
-        </div>
-      );
-    } else {
-      return null;
+    const globalProps = {
+      state: this.state,
+      setGlobalState: this.setGlobalState,
     }
+
+    return (
+      <div className="page_contents">
+        <div className="spaceman">
+          <Deploy globalProps={globalProps}/>
+          <Fund globalProps={globalProps}/>
+          <Shipped globalProps={globalProps}/>
+          <Approve globalProps={globalProps}/>
+          <Withdraw globalProps={globalProps}/>
+        </div>
+      </div>
+    );
   }
 }
 

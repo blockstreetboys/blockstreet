@@ -7,6 +7,7 @@ import 'codemirror/mode/javascript/javascript.js';
 class CodeEditor extends Component {
   constructor(props) {
     super(props);
+    this.value = "";
 
     this.handleChange = this.handleChange.bind(this);
   }
@@ -16,19 +17,40 @@ class CodeEditor extends Component {
   }
 
   componentDidMount() {
-    const codeMirror = CodeMirror.fromTextArea(this.refs.editor, {
+    let readOnly = false;
+
+    if (this.props.type === "tests") {
+      this.readOnly = true;
+    }
+
+    this.codeMirror = CodeMirror.fromTextArea(this.refs.editor, {
       mode: 'javascript',
       theme: 'blackboard',
       lineNumbers: true,
-
+      readOnly: readOnly
     });
-    codeMirror.on('changes', this.handleChange);
+
+    this.codeMirror.setValue(this.value);
+
+    this.codeMirror.on('changes', this.handleChange);
 
   }
+
+  componentWillReceiveProps (nextProps) {
+    if (this.props.type === "tests" &&
+    this.codeMirror !== undefined &&
+    nextProps.currentModule.title !== this.props.currentModule.title) {
+      this.value = nextProps.currentModule.testCases;
+      this.codeMirror.setValue(this.value);
+    }
+  }
+
   render() {
     return (
-      <textarea className={`code-editor ${this.props.type}-editor` +
-      this.props.activeTab === "type" ? "" : "hidden" } ref="editor" />
+      <div className={`code-editor ${this.props.type}-editor`
+        .concat(this.props.activeTab === this.props.type ? " " : " hidden-editor")}>
+      <textarea ref="editor" />
+      </div>
     );
   }
 }
