@@ -3,6 +3,8 @@ import CodeMirror from 'codemirror';
 import 'codemirror/lib/codemirror.css';
 import 'codemirror/theme/blackboard.css';
 import 'codemirror/mode/javascript/javascript.js';
+import 'codemirror/mode/javascript/javascript.js';
+import '../utilities/solidityMode';
 
 class CodeEditor extends Component {
   constructor(props) {
@@ -27,7 +29,7 @@ class CodeEditor extends Component {
     }
 
     this.codeMirror = CodeMirror.fromTextArea(this.refs.editor, {
-      mode: 'javascript',
+      mode: this.props.mode,
       theme: 'blackboard',
       lineNumbers: true,
       readOnly: readOnly

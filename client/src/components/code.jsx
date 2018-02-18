@@ -42,19 +42,23 @@ class Code extends Component {
   }
 
   render() {
+    const { currentModule, activeStage } = this.props;
+    const stage = currentModule.stages[activeStage];
     return (
       <div className='dev-code'>
         <CodeTabs />
         <CodeEditor
+           mode={stage.mode}
            updateCodeState={this.updateCodeState}
            type="script"
            activeTab={this.props.activeTab}
-           currentModule={this.props.currentModule.stages[this.props.activeStage]}/>
+           currentModule={stage}/>
         <CodeEditor
+          mode={stage.mode}
           updateCodeState={this.updateCodeState}
           type="tests"
           activeTab={this.props.activeTab}
-          currentModule={this.props.currentModule.stages[this.props.activeStage]}/>
+          currentModule={stage}/>
         <CodeDisplay updateRef={this.updateRef} />
         <CodeButtons runTest={this.runTest}/>
       </div>

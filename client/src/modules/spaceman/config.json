@@ -2,6 +2,7 @@
   "stages": [
     {
       "type": "code",
+      "mode": "solidity",
       "language": "solidity",
       "languageVersion": "0.x",
       "testFramework": "truffle_with_mocha",
@@ -12,6 +13,7 @@
     },
     {
       "type": "code",
+      "mode": "solidity",
       "language": "solidity",
       "languageVersion": "0.x",
       "testFramework": "truffle_with_mocha",
@@ -21,6 +23,7 @@
     },
     {
       "type": "code",
+      "mode": "solidity",
       "language": "solidity",
       "languageVersion": "0.x",
       "testFramework": "truffle_with_mocha",
@@ -30,6 +33,7 @@
     },
     {
       "type": "code",
+      "mode": "solidity",
       "language": "solidity",
       "languageVersion": "0.x",
       "testFramework": "truffle_with_mocha",
@@ -39,6 +43,7 @@
     },
     {
       "type": "code",
+      "mode": "javascript",
       "language": "javascript",
       "languageVersion": "6.x/babel",
       "testFramework": "mocha_bdd",
@@ -54,6 +59,7 @@
     },
     {
       "type": "code",
+      "mode": "javascript",
       "language": "javascript",
       "languageVersion": "6.x/babel",
       "testFramework": "mocha_bdd",
