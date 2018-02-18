@@ -1,30 +1,26 @@
 import React, { Component } from 'react';
-import { showSolution } from '../actions/module_actions';
+import { showSolution, updateCode } from '../actions/module_actions';
 import { connect } from 'react-redux';
 
 const mapDispatchToProps = dispatch => {
   return {
     showSolution: (activeStage) => dispatch(showSolution(activeStage)),
+    updateCode: (code, activeStage) => dispatch(updateCode(code, activeStage))
   };
 };
 
 class CodeButtons extends Component {
   constructor(props) {
     super(props);
-    this.resetCode = this.resetCode.bind(this);
-  }
-
-  resetCode() {
-
   }
 
   render() {
-    const { showSolution, activeStage } = this.props;
+    const { showSolution, activeStage, updateCode } = this.props;
     return (
       <div className='dev-code-buttons'>
         <RunTestButton runTest={this.props.runTest}/>
         <div className='dev-sub-buttons'>
-          <button className='dev-button' onClick={this.resetCode}>Reset Code</button>
+          <button className='dev-button' onClick={() => updateCode("", activeStage)}>Reset Code</button>
           <button className='dev-button' onClick={() => showSolution(activeStage)}>Show Solution</button>
         </div>
       </div>
