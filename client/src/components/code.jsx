@@ -5,6 +5,7 @@ import CodeEditor from './code_editor';
 import CodeDisplay from './code_display';
 import CodeTabs from './code_tabs';
 import { connect } from 'react-redux';
+import { updateCode } from '../actions/module_actions';
 import { showSolution } from '../actions/ui_actions';
 
 const mapStateToProps = state => {
@@ -17,11 +18,11 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => {
-  return({
-    showSolution: () => dispatch(showSolution())
+  return ({
+    showSolution: () => dispatch(showSolution()),
+    updateCode: (code) => dispatch(updateCode(code))
   });
 };
-
 
 class Code extends Component {
   constructor(props) {
@@ -29,18 +30,22 @@ class Code extends Component {
 
     this.state = {};
     this.ref = null;
-    this.updateCodeState = this.updateCodeState.bind(this);
+    this.updateCompCodeState = this.updateCompCodeState.bind(this);
     this.runTest = this.runTest.bind(this);
     this.updateRef = this.updateRef.bind(this);
     this.showSolution = this.showSolution.bind(this);
   }
 
-  updateCodeState(code) {
+  updateCompCodeState(code) {
     this.setState(code);
   }
 
   runTest () {
-    runCode(this.state, this.ref);
+    const { script, tests } = this.state;
+    const { currentModule, activeStage } = this.props;
+    const stage = currentModule.stages[activeStage];
+    const { language, languageVersion, testFramework } = stage;
+    runCode({ script, tests, language, languageVersion, testFramework }, this.ref);
   }
 
   updateRef(ref) {
@@ -52,21 +57,29 @@ class Code extends Component {
   }
 
   render() {
+    const { currentModule, activeStage } = this.props;
+    const stage = currentModule.stages[activeStage];
     return (
       <div className='dev-code'>
         <CodeTabs />
         <CodeEditor
-           updateCodeState={this.updateCodeState}
+           mode={stage.mode}
+           updateCompCodeState={this.updateCompCodeState}
+           updateCode={this.props.updateCode}
            type="script"
            activeTab={this.props.activeTab}
            currentModule={this.props.currentModule.solidityStages[this.props.activeStage]}
            solutionBoolean={this.props.solutionBoolean}
-           showSolution={this.props.showSolution}/>
+           showSolution={this.props.showSolution}
+           activeStage={this.props.activeStage}/>
         <CodeEditor
-          updateCodeState={this.updateCodeState}
+          mode={stage.mode}
+          updateCompCodeState={this.updateCompCodeState}
+          updateCode={this.props.updateCode}
           type="tests"
           activeTab={this.props.activeTab}
-          currentModule={this.props.currentModule.solidityStages[this.props.activeStage]}/>
+          currentModule={stage}
+          activeStage={this.props.activeStage}/>
         <CodeDisplay updateRef={this.updateRef} />
         <CodeButtons
           runTest={this.runTest}

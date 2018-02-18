@@ -1,5 +1,4 @@
-import web3 from './web3';
-import { networkId } from './config';
+import web3 from './web3Config';
 import { Component } from 'react';
 
 export const ERRORS = {
@@ -35,7 +34,7 @@ class PollWeb3 extends Component {
       if(accounts.length === 0) {
         this.setState({ error: ERRORS.NEED_TO_LOGIN });
       }
-      else if(networkId && web3.version.network !== networkId) {
+      else if(web3.version.network === '1') {
         this.setState({ error: ERRORS.SWITCH_NETWORK });
       }
       else if(this.state.polling) {

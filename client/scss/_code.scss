@@ -7,6 +7,7 @@
     margin: 0 0 20px 0;
   }
   .code-display {
+    background-color: #131414;
     flex-grow: 1;
   }
 }
@@ -66,6 +67,7 @@
     border-top-right-radius: 5px;
     border-top-left-radius: 5px;
     text-align: center;
+    margin-left: 5px;
   }
 
   .inactive-tab {

@@ -3,6 +3,9 @@ import CodeMirror from 'codemirror';
 import 'codemirror/lib/codemirror.css';
 import 'codemirror/theme/blackboard.css';
 import 'codemirror/mode/javascript/javascript.js';
+import '../utilities/solidityMode';
+import { debounce } from '../utilities/generalUtil';
+
 
 class CodeEditor extends Component {
   constructor(props) {
@@ -10,12 +13,21 @@ class CodeEditor extends Component {
     this.value = "";
 
     this.handleChange = this.handleChange.bind(this);
+    this.updateStoreCode = this.updateStoreCode.bind(this);
   }
 
   handleChange(type) {
     return (editor) => {
-      this.props.updateCodeState({[type]: editor.getValue()});
+      this.props. updateCompCodeState({[type]: editor.getValue()});
     };
+  }
+
+  updateStoreCode(type) {
+    debugger
+    return debounce((editor)=>{
+      debugger
+      this.props.updateCode(editor.getValue(), this.props.activeStage);
+    }, 1000).bind(this);
   }
 
   componentDidMount() {
@@ -23,11 +35,11 @@ class CodeEditor extends Component {
 
     if (this.props.type === "tests") {
       this.value = this.props.currentModule.testCases;
-      this.readOnly = true;
+      readOnly = true;
     }
 
     this.codeMirror = CodeMirror.fromTextArea(this.refs.editor, {
-      mode: 'javascript',
+      mode: this.props.mode,
       theme: 'blackboard',
       lineNumbers: true,
       readOnly: readOnly
@@ -36,7 +48,8 @@ class CodeEditor extends Component {
     this.codeMirror.setValue(this.value);
 
     this.codeMirror.on('changes', this.handleChange(this.props.type));
-    this.props.updateCodeState({[this.props.type]: this.codeMirror.getValue()});
+    this.codeMirror.on('changes', this.updateStoreCode(this.props.type));
+    this.props. updateCompCodeState({[this.props.type]: this.codeMirror.getValue()});
 
   }
 

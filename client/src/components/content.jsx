@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 const mapStateToProps = (state) => {
   const activeStage = state.ui.activeStage;
   return({
-    content: state.modules.spaceman.solidityStages[activeStage].instructions
+    content: state.modules.spaceman.stages[activeStage].instructions
   });
 };
 

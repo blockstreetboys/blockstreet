@@ -9,7 +9,7 @@ import {
 const mapStateToProps = state => {
   return {
     sidebarShown: state.ui.showDevSidebar,
-    stages: state.modules.spaceman.solidityStages,
+    stages: state.modules.spaceman.stages,
     activeStage: state.ui.activeStage
   };
 };
@@ -50,7 +50,10 @@ class Sidebar extends Component {
       // sidebarClasses.push("hidden-sidebar");
     }
 
-    const stages = this.props.stages.map((stage, idx)=>{
+    if(!this.props.stages) {
+      debugger;
+    }
+    const stageButtons = this.props.stages.map((stage, idx)=>{
       return <StageButton
         key={idx}
         idx={idx}
@@ -63,7 +66,7 @@ class Sidebar extends Component {
       <div className={sidebarClasses.join(" ")}>
         <div className={contentClasses.join(" ")}>
           <h1>Stages</h1>
-          {stages}
+          {stageButtons}
         </div>
         <div
           className='dev-sidebar-handle'

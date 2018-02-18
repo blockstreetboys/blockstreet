@@ -1,31 +1,20 @@
 const crUrl =  'https://codecast.qualified.io/relay';
 
-export const runCode = ({ script, tests }, ref) => {
-  let resolve;
-  let reject;
-  let posts = [];
-
+export const runCode = ({ script, tests, language, languageVersion, testFramework }, ref) => {
   ref.contentWindow.postMessage({
     method: 'run',
     data: {
-      language: 'javascript',
-      languageVersion: '6.x',
-      testFramework: 'mocha_bdd',
+      language,
+      languageVersion,
+      testFramework,
       fixture: tests,
-      code: script
+      code: script,
+      privilegeMode: "full",
+      successMode: "specs",
+      services: [],
+      setup: "",
+      ably: true,
+      batch: true
     }
   }, crUrl);
-
-  const promise = new Promise((_resolve, _reject) => {
-    resolve = _resolve;
-    reject = _reject;
-  });
-
-  const timeout = setTimeout(() => {
-    const post = posts.pop();
-    post.reject();
-  }, 2000);
-
-  posts.push({ promise, reject, resolve, timeout });
-  return promise;
 };
