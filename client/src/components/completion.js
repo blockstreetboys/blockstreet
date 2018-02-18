@@ -1,6 +1,21 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+
+const mapStateToProps = state => {
+  const { stages } = state.modules.spaceman;
+  return ({
+    lastSolidityStage: stages[3], // TODO: hardcoded for now!
+  });
+};
 
 class Completion extends Component {
+  constructor(props) {
+    super(props);
+    this.deploy = this.deploy.bind(this);
+  }
+  deploy() {
+    const { lastSolidityStage } = this.props;
+  }
   render() {
     return (
       <div className="completion">
@@ -19,4 +34,4 @@ class Completion extends Component {
   }
 }
 
-export default Completion;
+export default connect(mapStateToProps)(Completion);
