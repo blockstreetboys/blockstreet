@@ -139,6 +139,15 @@ button:hover {
   bottom: 0px;
 }
 
+.user-info {
+  width: 70%;
+  background-color: white;
+  color: black;
+  border-bottom: none;
+  border-left: none;
+  border-right: none;
+}
+
 .app-state {
   display: flex;
   align-items: center;
