@@ -13,14 +13,14 @@ class App extends Component {
     this.state = {
       currentStage: 0,
       contract: {},
-      balance: 0, 
+      balance: 0,
       arbiterAddress: "",
       shipperAddress: "",
       astronautAddress: web3.eth.accounts[0]
     };
     this.setGlobalState = this.setGlobalState.bind(this);
   }
-  
+
   setGlobalState(key, value) {
     this.setState( {[key]: value});
   }
@@ -30,14 +30,16 @@ class App extends Component {
       state: this.state,
       setGlobalState: this.setGlobalState,
     }
-    
+
     return (
-      <div className="spaceman">
-        <Deploy globalProps={globalProps}/>
-        <Fund globalProps={globalProps}/>
-        <Shipped globalProps={globalProps}/>
-        <Approve globalProps={globalProps}/>
-        <Withdraw globalProps={globalProps}/>
+      <div className="page_contents">
+        <div className="spaceman">
+          <Deploy globalProps={globalProps}/>
+          <Fund globalProps={globalProps}/>
+          <Shipped globalProps={globalProps}/>
+          <Approve globalProps={globalProps}/>
+          <Withdraw globalProps={globalProps}/>
+        </div>
       </div>
     );
   }
