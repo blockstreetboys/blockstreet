@@ -20,6 +20,7 @@
     flex-grow: 2.5;
     margin: 0 0 20px 0; }
   .dev-code .code-display {
+    background-color: #131414;
     flex-grow: 1; }
 
 .dev-content {
