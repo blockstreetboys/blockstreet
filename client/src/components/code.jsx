@@ -38,12 +38,11 @@ class Code extends Component {
   }
 
   runTest () {
-    const { script, tests } = this.state;
     const { currentModule, activeStage } = this.props;
     const stage = currentModule.stages[activeStage];
-    const { language, languageVersion, testFramework } = stage;
+    const { code, testCases, language, languageVersion, testFramework } = stage;
     this.props.updateCode(this.state.script, this.props.activeStage);
-    runCode({ script, tests, language, languageVersion, testFramework }, this.ref);
+    runCode({ code, testCases, language, languageVersion, testFramework }, this.ref);
   }
 
   updateRef(ref) {
@@ -69,7 +68,7 @@ class Code extends Component {
           mode={stage.mode}
           updateCompCodeState={this.updateCompCodeState}
           updateCode={this.props.updateCode}
-          type="tests"
+          type="testCases"
           activeTab={this.props.activeTab}
           currentModule={stage}
           activeStage={this.props.activeStage}/>

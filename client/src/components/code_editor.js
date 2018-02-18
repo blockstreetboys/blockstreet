@@ -30,7 +30,9 @@ class CodeEditor extends Component {
   componentDidMount() {
     let readOnly = false;
 
-    if (this.props.type === "tests") {
+    const { type } = this.props;
+
+    if (type === "testCases") {
       readOnly = true;
     }
 
@@ -41,15 +43,18 @@ class CodeEditor extends Component {
       readOnly: readOnly
     });
 
-    this.codeMirror.on('changes', this.handleChange(this.props.type));
-    this.codeMirror.on('changes', this.updateStoreCode(this.props.type));
-    this.props.updateCompCodeState({[this.props.type]: this.codeMirror.getValue()});
+    this.codeMirror.on('changes', this.handleChange(type));
+    this.codeMirror.on('changes', this.updateStoreCode(type));
+    this.props.updateCompCodeState({[type]: this.codeMirror.getValue()});
 
+    console.log(this.props.currentModule, type)
+    this.codeMirror.setValue(this.props.currentModule[type] || "");
   }
 
   componentWillReceiveProps (nextProps) {
-    if(this.props.currentModule.code !== nextProps.currentModule.code) {
-      this.codeMirror.setValue(nextProps.currentModule.code || "");
+    const { type } = this.props;
+    if(this.props.currentModule[type] !== nextProps.currentModule[type]) {
+      this.codeMirror.setValue(nextProps.currentModule[type] || "");
     }
   }
 

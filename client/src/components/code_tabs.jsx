@@ -33,7 +33,7 @@ class CodeTabs extends Component {
     return (
       <div className='dev-code-tabs'>
         <div className={this.props.activeTab === "script" ? "" : "inactive-tab"} onClick={this.handleSwitch("script")}>Script</div>
-        <div className={this.props.activeTab === "tests" ? "" : "inactive-tab"} onClick={this.handleSwitch("tests")}>Tests</div>
+        <div className={this.props.activeTab === "testCases" ? "" : "inactive-tab"} onClick={this.handleSwitch("testCases")}>Tests</div>
       </div>
 
     );
