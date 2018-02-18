@@ -66,9 +66,10 @@ class Fund extends Component {
 
           <div className="stage-right">
             <label>
-              <span>Payment</span>
+              <span>Payment (ether)</span>
               <input
                 className="ether input"
+                type="number"
                 onChange={this.handleChange('balance')}
                 value={this.state.balance}/>
             </label>

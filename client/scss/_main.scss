@@ -1,9 +1,13 @@
 
 .dev-main {
+  z-index: 10;
   display: flex;
   width: 100%;
+  position: relative;
+  // width: calc(100% - 200px);
 }
 
 .dev-content, .dev-code {
   margin: 40px;
+  // width: 50%;
 }

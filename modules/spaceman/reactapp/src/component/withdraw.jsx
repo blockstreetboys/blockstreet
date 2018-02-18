@@ -58,7 +58,7 @@ class Withdraw extends Component {
           <div className="stage-right">
             <label>
               <span>Contract Balance</span>
-              <input value={this.state.balance}/>
+              <input className='input ether' value={this.state.balance}/>
             </label>
           </div>
         </div>
