@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 class SplashPage extends Component {
   constructor(props) {
     super(props);
-
     this.launchSpaceman = this.launchSpaceman.bind(this);
   }
 

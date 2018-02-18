@@ -34,7 +34,6 @@ class Code extends Component {
     this.updateCompCodeState = this.updateCompCodeState.bind(this);
     this.runTest = this.runTest.bind(this);
     this.updateRef = this.updateRef.bind(this);
-    this.showSolution = this.showSolution.bind(this);
   }
 
   updateCompCodeState(code) {
@@ -52,10 +51,6 @@ class Code extends Component {
 
   updateRef(ref) {
     this.ref = ref;
-  }
-
-  showSolution() {
-    this.props.showSolution();
   }
 
   render() {
@@ -85,7 +80,7 @@ class Code extends Component {
         <CodeDisplay updateRef={this.updateRef} />
         <CodeButtons
           runTest={this.runTest}
-          showSolution={this.showSolution}/>
+          showSolution={this.props.showSolution}/>
       </div>
 
     );
