@@ -18,7 +18,8 @@ const store = createStore(reducer,
 
 store.subscribe(() => {
 	// determines what is persisted in localstorage
-	saveState(store.getState());
+	
+	saveState();
 });
 
 export default store;

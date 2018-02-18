@@ -19,8 +19,9 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return ({
-    showSolution: () => dispatch(showSolution()),
-    updateCode: (code) => dispatch(updateCode(code))
+    updateCode: (code, activeStage) => dispatch(updateCode(code, activeStage)),
+    showSolution: () => dispatch(showSolution())
+
   });
 };
 
@@ -45,6 +46,7 @@ class Code extends Component {
     const { currentModule, activeStage } = this.props;
     const stage = currentModule.stages[activeStage];
     const { language, languageVersion, testFramework } = stage;
+    this.props.updateCode(this.state.script, this.props.activeStage);
     runCode({ script, tests, language, languageVersion, testFramework }, this.ref);
   }
 
