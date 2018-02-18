@@ -9,8 +9,8 @@ const routesPrefix = '/api';
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.put(`${routesPrefix}/zip/`, function(request, response) {
-    const { contract, testCases } = request.body;
+app.get(`${routesPrefix}/zip/`, function(request, response) {
+    const { contract, testCases } = request.query;
 
     response.writeHead(200, {
         'Content-Type': 'application/zip',
@@ -27,8 +27,8 @@ app.put(`${routesPrefix}/zip/`, function(request, response) {
 
     zip.file('../modules/spaceman/truffle/contracts/Migrations.sol', { name: 'reactapp/truffle/contracts/Migrations.sol' });
 
-    zip.append(contract, { name: 'reactapp/truffle/contracts/astronaut.sol' })
-    zip.append(testCases, { name: 'reactapp/truffle/tests/astronaut.js' })
+    zip.append(contract || "", { name: 'reactapp/truffle/contracts/astronaut.sol' })
+    zip.append(testCases || "", { name: 'reactapp/truffle/tests/astronaut.js' })
 
     zip.finalize();
 });

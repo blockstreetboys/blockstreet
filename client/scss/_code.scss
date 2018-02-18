@@ -27,9 +27,14 @@
   display: flex;
 }
 
-.dev-sub-buttons {
+.dev-code-buttons {
+  position: absolute;
   display: flex;
-  justify-content: space-between;
+  bottom: 0;
+}
+
+.dev-button {
+  margin-left: 2rem;
 }
 
 #run-test-button, .dev-button {
