@@ -24,7 +24,7 @@ const modulesReducer = (state = {}, action) => {
       return merge({}, state, {"spaceman": action.data});
     case UPDATE_CODE:
       debugger
-      return merge({}, state, {"spaceman": action.code });
+      // return merge({}, state, {"spaceman": action.code });
     default:
       return state;
   }
