@@ -4,15 +4,13 @@ import StageButton from './stage_button';
 import {
   showDevSidebar,
   hideDevSidebar,
-  changeStage } from '../actions/ui_actions';
+  changeStage,
+  showSolution } from '../actions/ui_actions';
 
 const mapStateToProps = state => {
   return {
     sidebarShown: state.ui.showDevSidebar,
     stages: state.modules.spaceman.stages,
-    deploymentStage: state.modules.spaceman.deploymentStage,
-    apiStage: state.modules.spaceman.apiStage,
-    testnetStage: state.modules.spaceman.testnetStage,
     activeStage: state.ui.activeStage
   };
 };
@@ -22,6 +20,7 @@ const mapDispatchToProps = dispatch => {
     showDevSidebar: () => dispatch(showDevSidebar()),
     hideDevSidebar: () => dispatch(hideDevSidebar()),
     changeStage: (stageNumber) => dispatch(changeStage(stageNumber)),
+    showSolution: () => dispatch(showSolution()),
   };
 };
 
@@ -53,13 +52,17 @@ class Sidebar extends Component {
       // sidebarClasses.push("hidden-sidebar");
     }
 
+    if(!this.props.stages) {
+      debugger;
+    }
     const stageButtons = this.props.stages.map((stage, idx)=>{
       return <StageButton
         key={idx}
         idx={idx}
         stage={stage}
         changeStage={this.props.changeStage}
-        activeStage={this.props.activeStage}/>;
+        activeStage={this.props.activeStage}
+        showSolution={this.props.showSolution}/>;
     });
 
     return (

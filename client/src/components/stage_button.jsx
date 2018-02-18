@@ -9,6 +9,7 @@ class StageButton extends Component {
 
   handleClick() {
     this.props.changeStage(this.props.idx);
+    this.props.showSolution();
   }
 
   render() {

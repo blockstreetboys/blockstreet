@@ -14,16 +14,15 @@ class CodeDisplay extends Component {
     if (response && response.method) {
       const { method } = response;
 
-      if (method === 'notifyReceipt') {
-      //   const lastPost = this.posts[this.posts.length - 1];
-      //   clearTimeout(lastPost.timeout);
-        console.log('you have no internet connection');
-      }
       if (method === 'notifyResponse') {
         const { data } = response;
-      //   const lastPost = this.posts.pop();
-      //   lastPost.resolve(data);
         console.log(data);
+        if(data.completed) {
+          // we win!
+        }
+        else {
+          // we don't
+        }
       }
     }
   }

@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import PollWeb3, { ERRORS } from './utilities/PollWeb3';
-const MetamaskLogo = require('metamask-logo');
+import PollWeb3, { ERRORS } from '../utilities/PollWeb3';
+const MetaMaskLogo = require('metamask-logo');
 
-class Metamask extends PollWeb3 {
+class MetaMask extends PollWeb3 {
   donePolling() {
-    // bryan this is where we will continue
+    if(this.props.done) this.props.done();
   }
   render() {
     const { error } = this.state;
@@ -17,7 +17,7 @@ class Metamask extends PollWeb3 {
 
 class Fox extends Component {
   componentDidMount() {
-    this.fox = MetamaskLogo({
+    this.fox = MetaMaskLogo({
       pxNotRatio: false,
       width: 0.4,
       height: 0.4,
@@ -40,10 +40,10 @@ class Install extends Component {
     return (
       <div className="metamask-outer-container">
         <div className="metamask-container">
-          <p className="instructions"> To create a Capsule you&apos;ll <br />need the MetaMask extension </p>
+          <p className="instructions"> To deploy your Contract you&apos;ll need the MetaMask extension </p>
           <Fox />
-          <p className="subInstructions"> Here&apos;s a link to the <br />MetaMask Website </p>
-          <a href="https://metamask.io/" target="_blank" rel="noopener noreferrer" className="button blue"> MetaMask Home </a>
+          <p className="subInstructions"> Here&apos;s a link to the MetaMask Website </p>
+          <a href="https://metamask.io/" target="_blank" rel="noopener noreferrer" className="dev-button"> MetaMask Home </a>
         </div>
       </div>
     )
@@ -55,10 +55,9 @@ class SignIn extends Component {
     return (
       <div className="metamask-outer-container">
         <div className="metamask-container">
-          <p className="instructions"> It looks like you&apos;re not <br />signed into MetaMask </p>
+          <p className="instructions"> Looks like you&apos;re not signed into MetaMask </p>
           <Fox />
-          <p className="subInstructions"> Most likely you just need to sign<br /> in on your MetaMask extension</p>
-          <a href="https://github.com/MetaMask/faq" target="_blank" rel="noopener noreferrer" className="button blue"> MetaMask FAQs </a>
+          <p className="subInstructions"> To deploy your contract sign in on your MetaMask extension</p>
         </div>
       </div>
     )
@@ -70,16 +69,15 @@ class SwitchNetwork extends Component {
     return (
       <div className="metamask-outer-container">
         <div className="metamask-container">
-          <p className="instructions"> You are not on the <br />Main Ethereum Network </p>
+          <p className="instructions"> You are on the Main Ethereum Network </p>
           <Fox />
           <p className="subInstructions">
-            Most likely you just need to switch to <br />the main network on your MetaMask extension
+            Please switch to a test network to deploy your contract!
           </p>
-          <a href="https://github.com/MetaMask/faq" target="_blank" rel="noopener noreferrer" className="button blue"> MetaMask FAQs </a>
         </div>
       </div>
     )
   }
 }
 
-export default Metamask;
+export default MetaMask;
