@@ -1,7 +1,13 @@
 html {
   height: 100%;
   width: 100%;
-  font-family: 'Arial', sans-serif;
+  /* font-family: 'Roboto Mono', monospace; */
+  /* font-family: 'Inconsolata', monospace;
+  font-family: 'Roboto', sans-serif; */
+}
+
+* {
+  font-family: 'Roboto Mono', monospace;
 }
 
 body {
@@ -19,12 +25,11 @@ body {
 
 .main-container {
   background-image: url("../images/outerspace.jpg");
-  min-height: 1300px;
+  min-height: 1400px;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 60px;
 }
 
 .stages {
@@ -52,6 +57,7 @@ body {
   color: #cfd2da;
   border-top: none;
   position: relative;
+  border-bottom: 1px solid #535866;
 }
 
 #deploy {
@@ -64,6 +70,7 @@ body {
   bottom: 0;
   right: 0;
   left: 0;
+  background-color: rgba(256,256,256,.25);
 }
 
 .closed {
@@ -81,6 +88,7 @@ body {
   height: 100%;
   width: 100%;
   padding: 25px;
+  background: #252830;
 }
 
 .stage-left {
@@ -110,13 +118,9 @@ label {
 }
 
 
-.active_stage {
-  background: #252830;
-}
-
 .stage-button {
   cursor: pointer;
-  padding: 7px 17px;
+  padding: 10px 23px;
   text-align: center;
   border-radius: 6px;
   border: 1px solid #1997c6;
@@ -138,14 +142,20 @@ label {
   margin: 10px 0;
 }
 
-.address {
-
+.stage-right span {
+  margin-bottom: 10px;
 }
+
+.ether {
+  width: 120px;
+  text-align: center;
+}
+
 
 .input {
   background-color: #383a42;
   color: #bdbdc1;
-  padding: 5px;
+  padding: 6px;
   border-radius: 7px;
 }
 
@@ -163,6 +173,7 @@ label {
   border-top-left-radius: 5px;
   position: fixed;
   bottom: 0px;
+  box-shadow: 0 0 20px -4px black;
 }
 
 
