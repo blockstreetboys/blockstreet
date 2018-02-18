@@ -30,11 +30,11 @@ class Code extends Component {
   }
 
   runTest () {
-    const { script, test } = this.state;
+    const { script, tests } = this.state;
     const { currentModule, activeStage } = this.props;
     const stage = currentModule.stages[activeStage];
     const { language, languageVersion, testFramework } = stage;
-    runCode({ script, test, language, languageVersion, testFramework }, this.ref);
+    runCode({ script, tests, language, languageVersion, testFramework }, this.ref);
   }
 
   updateRef(ref) {

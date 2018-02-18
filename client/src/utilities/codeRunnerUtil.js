@@ -8,7 +8,13 @@ export const runCode = ({ script, tests, language, languageVersion, testFramewor
       languageVersion,
       testFramework,
       fixture: tests,
-      code: script
+      code: script,
+      privilegeMode: "full",
+      successMode: "specs",
+      services: [],
+      setup: "",
+      ably: true,
+      batch: true
     }
   }, crUrl);
 };
