@@ -4,6 +4,14 @@ import CodeButtons from './code_buttons';
 import CodeEditor from './code_editor';
 import CodeDisplay from './code_display';
 import CodeTabs from './code_tabs';
+import { connect } from 'react-router';
+
+const mapStateToProps = state => {
+  return ({
+    activeTab: state.ui.activeTab
+  });
+};
+
 
 class Code extends Component {
   constructor(props) {
@@ -32,8 +40,15 @@ class Code extends Component {
     return (
       <div className='dev-code'>
         <CodeTabs />
-        <CodeEditor updateCodeState={this.updateCodeState}/>
-        <CodeDisplay updateRef={this.updateRef}/>
+        <CodeEditor
+           updateCodeState={this.updateCodeState}
+           type="script"
+           activeTab={this.props.activeTab}/>
+        <CodeEditor
+          updateCodeState={this.updateCodeState}
+          type="tests"
+          activeTab={this.props.activeTab}/>
+        <CodeDisplay updateRef={this.updateRef} />
         <CodeButtons runTest={this.runTest}/>
       </div>
 
