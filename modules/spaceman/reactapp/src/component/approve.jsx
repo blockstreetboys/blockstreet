@@ -18,8 +18,7 @@ class Approve extends Component {
     }
   }
 
-  approveTransaction(e) {
-    e.preventDefault();
+  approveTransaction() {
     if (this.state.currentStage === "STAGE-3") {
       this.state.contract.receive(this.state.arbiterAddress, (err, res) => {
         if (err) {
@@ -35,15 +34,31 @@ class Approve extends Component {
   }
 
   render() {
+    const coverClass = this.state.currentStage === "STAGE-3" ?
+    "closed" : "open";
+
     return (
-      <div id="approve" className='stage'>
-        <div className="form_container">
-          <div className="button_container">
-            <button className='button_static' onClick={this.approveTransaction}>
+      <div>
+
+        <div className={coverClass}>
+        </div>
+
+        <div id="approve" className="stage">
+          <div className="stage-left">
+            <button
+              className='stage-button'
+              onClick={this.approveTransaction}>
               Approve Transaction
             </button>
           </div>
+
+          <div className="stage-mid">
+          </div>
+
+          <div className="stage-right">
+          </div>
         </div>
+
       </div>
     );
   }

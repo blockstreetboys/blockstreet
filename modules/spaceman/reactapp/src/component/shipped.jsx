@@ -19,8 +19,7 @@ class Shipped extends Component {
     }
   }
 
-  shipGoods(e) {
-    e.preventDefault();
+  shipGoods() {
     if (this.state.currentStage === "STAGE-2") {
       console.log("GOODS SHIPPED!");
       document.getElementById('shipped').classList.remove('active_stage');
@@ -29,14 +28,30 @@ class Shipped extends Component {
   }
 
   render() {
+    const coverClass = this.state.currentStage === "STAGE-2" ?
+    "closed" : "open";
+
     return (
-      <div id="shipped" className='stage'>
-        <div className="form_container">
-          <div className="button_container">
-            <button onClick={this.shipGoods}
-              className='button_static'>Ship Goods</button>
+      <div>
+
+        <div className={coverClass}>
+        </div>
+
+        <div id="shipped" className="stage">
+          <div className="stage-left">
+            <button
+              onClick={this.shipGoods}
+              className='stage-button'>
+              Ship Goods</button>
+          </div>
+
+          <div className="stage-mid">
+          </div>
+
+          <div className="stage-right">
           </div>
         </div>
+
       </div>
     );
   }
