@@ -34,7 +34,7 @@ class PollWeb3 extends Component {
       if(accounts.length === 0) {
         this.setState({ error: ERRORS.NEED_TO_LOGIN });
       }
-      else if(web3.version.network !== '1') {
+      else if(web3.version.network === '1') {
         this.setState({ error: ERRORS.SWITCH_NETWORK });
       }
       else if(this.state.polling) {
