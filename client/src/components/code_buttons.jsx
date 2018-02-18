@@ -13,7 +13,7 @@ class CodeButtons extends Component {
   }
 
   showSolution() {
-
+    this.props.showSolution();
   }
 
   render() {

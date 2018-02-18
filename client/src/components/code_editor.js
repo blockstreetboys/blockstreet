@@ -47,6 +47,12 @@ class CodeEditor extends Component {
       this.value = nextProps.currentModule.testCases;
       this.codeMirror.setValue(this.value);
     }
+
+    if(this.props.solutionBoolean) {
+      this.value = nextProps.currentModule.referenceSolution;
+      this.codeMirror.setValue(this.value);
+      this.props.showSolution();
+    }
   }
 
   render() {
