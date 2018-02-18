@@ -5,7 +5,14 @@ import 'codemirror/theme/blackboard.css';
 import 'codemirror/mode/javascript/javascript.js';
 import '../utilities/solidityMode';
 import { debounce } from '../utilities/generalUtil';
+import { unsetShowSolution } from '../actions/ui_actions';
+import { connect } from 'react-redux';
 
+const mapDispatchToProps = dispatch => {
+  return ({
+    unsetShowSolution: () => dispatch(unsetShowSolution())
+  });
+};
 
 class CodeEditor extends Component {
   constructor(props) {
@@ -24,7 +31,7 @@ class CodeEditor extends Component {
 
   updateStoreCode(type) {
     return debounce((editor)=>{
-      
+
       this.props.updateCode(editor.getValue(), this.props.activeStage);
     }, 1000).bind(this);
   }
@@ -63,7 +70,7 @@ class CodeEditor extends Component {
     if(this.props.solutionBoolean) {
       this.value = nextProps.currentModule.referenceSolution;
       this.codeMirror.setValue(this.value);
-      this.props.showSolution();
+      this.props.unsetShowSolution();
     }
   }
 
@@ -77,4 +84,4 @@ class CodeEditor extends Component {
   }
 }
 
-export default CodeEditor;
+export default connect(null, mapDispatchToProps)(CodeEditor);

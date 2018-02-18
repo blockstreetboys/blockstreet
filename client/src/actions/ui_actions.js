@@ -3,7 +3,7 @@ export const HIDE_DEV_SIDEBAR = "HIDE_DEV_SIDEBAR";
 export const SWITCH_TAB = "SWITCH_TAB";
 export const CHANGE_STAGE = "CHANGE_STAGE";
 export const SHOW_SOLUTION = 'SHOW_SOLUTION';
-
+export const UNSET_SHOW_SOLUTION = "UNSET_SHOW_SOLUTION";
 
 export const showDevSidebar = () => {
   return {
@@ -34,5 +34,11 @@ export const switchTab = (tabName) => {
 export const showSolution = () => {
   return({
     type: SHOW_SOLUTION
+  });
+};
+
+export const unsetShowSolution = () => {
+  return({
+    type: UNSET_SHOW_SOLUTION
   });
 };

@@ -3,13 +3,11 @@ import React, { Component } from 'react';
 class StageButton extends Component {
   constructor(props) {
     super(props);
-
     this.handleClick = this.handleClick.bind(this);
   }
 
   handleClick() {
     this.props.changeStage(this.props.idx);
-    this.props.showSolution();
   }
 
   render() {

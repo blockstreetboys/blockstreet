@@ -1,22 +1,12 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { loadSpaceman } from '../actions/module_actions';
-
-const mapDispatchToProps = dispatch => {
-  return ({
-    getSpacemanData: () => dispatch(loadSpaceman())
-  });
-};
 
 class SplashPage extends Component {
   constructor(props) {
     super(props);
-
     this.launchSpaceman = this.launchSpaceman.bind(this);
   }
 
   launchSpaceman(e) {
-    this.props.getSpacemanData();
     this.props.history.push("/tutorial");
     e.stopPropagation();
   }
@@ -40,4 +30,4 @@ class SplashPage extends Component {
   }
 }
 
-export default connect(null,mapDispatchToProps)(SplashPage);
+export default SplashPage;

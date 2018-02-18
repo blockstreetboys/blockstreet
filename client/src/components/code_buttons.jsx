@@ -1,28 +1,31 @@
 import React, { Component } from 'react';
+import { showSolution } from '../actions/ui_actions';
+import { connect } from 'react-redux';
+
+const mapDispatchToProps = dispatch => {
+  return {
+    showSolution: () => dispatch(showSolution()),
+  };
+};
 
 class CodeButtons extends Component {
   constructor(props) {
     super(props);
-
     this.resetCode = this.resetCode.bind(this);
-    this.showSolution = this.showSolution.bind(this);
   }
 
   resetCode() {
 
   }
 
-  showSolution() {
-    this.props.showSolution();
-  }
-
   render() {
+    const { showSolution } = this.props;
     return (
       <div className='dev-code-buttons'>
         <RunTestButton runTest={this.props.runTest}/>
         <div className='dev-sub-buttons'>
           <button className='dev-button' onClick={this.resetCode}>Reset Code</button>
-          <button className='dev-button' onClick={this.showSolution}>Show Solution</button>
+          <button className='dev-button' onClick={showSolution}>Show Solution</button>
         </div>
       </div>
     );
@@ -54,4 +57,4 @@ class ContinueButton extends Component {
   }
 }
 
-export default CodeButtons;
+export default connect(null, mapDispatchToProps)(CodeButtons);

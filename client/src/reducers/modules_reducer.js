@@ -1,29 +1,14 @@
-import { LOAD_SPACEMAN, UPDATE_CODE } from '../actions/module_actions';
+import { UPDATE_CODE } from '../actions/module_actions';
 import { merge } from 'lodash';
+import spacemanData from '../modules/spaceman/config';
 
 const defaultState = {
-  spaceman: {
-    apiStage: {
-      referenceSolution: "",
-      testCases: "",
-      title: ""
-    },
-    deploymentStage: {
-      preloaded: "",
-      referenceSolution: "",
-      testCases: "",
-      title: ""
-    },
-    stages: []
-  }
+  spaceman: spacemanData
 };
 
 const modulesReducer = (state = defaultState, action) => {
   switch (action.type) {
-    case LOAD_SPACEMAN:
-      return merge({}, state, {"spaceman": action.data});
     case UPDATE_CODE:
-
       const newArr = state.spaceman.stages.slice();
       newArr[action.activeStage] = merge({}, newArr[action.activeStage], {code: action.code});
       return merge({}, state, {"spaceman": {"stages": newArr}});
