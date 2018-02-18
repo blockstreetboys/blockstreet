@@ -61,18 +61,17 @@ class Deploy extends Component {
             <button className='button_input'>Deploy Contract</button>
           </div>
           <div className='input_fields'>
-            <label>Your Address
+            <label>Your Address</label>
               <input onChange={this.handleChange('astronautAddress')}
                 value={this.state.astronautAddress}/>
-            </label>
             <label>Alien Auto Parts Address
+            </label>
               <input onChange={this.handleChange('shipperAddress')}
                 value={this.state.shipperAddress}/>
-            </label>
             <label>Arbiter Address
+            </label>
               <input onChange={this.handleChange('arbiterAddress')}
                 value={this.state.arbiterAddress}/>
-            </label>
           </div>
         </form>
       </div>

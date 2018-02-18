@@ -29,9 +29,9 @@ button {
 }
 
 .page_contents {
+  background: black;
   min-height: 100%;
   width: 100%;
-  background: black;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -109,29 +109,29 @@ button:hover {
 }
 
 .input_fields {
+  width: 30%;
   display: flex;
-  flex-direction: column;
-  /* justify-content: right; */
-  /* position:absolute; */
-  /* margin-bottom: 5px; */
-  /* top: 25%; */
-  /* padding: 2%; */
-  /* display: inline; */
-  /* margin-left: 10%;
-  margin-right: 10%; */
-  /* justify-content: right; */
+  flex-direction:column;
   /* align-items: right; */
-  /* justify-items: right; */
-  /* align-content: space-evenly; */
-  /* min-width: 310px; */
-  /* margin-bottom: */
-  /* margin-right: 10%; */
-  /* right: 0; */
+  justify-content: space-around;
+  /* position: relative; */
+  margin-right: 5%;
+}
+
+label {
+  align-self:flex-end;
+
+}
+
+input {
+  margin-left: 5%;
+  /* padding-left: 5%; */
 }
 
 .form_container {
   min-height: 150px;
   display: flex;
   color: #3ee7ad;
-  position: relative;
+  justify-content: space-between;
+  /* position: relative; */
 }
