@@ -14,7 +14,6 @@ const mapStateToProps = state => {
   });
 };
 
-
 class Code extends Component {
   constructor(props) {
     super(props);
@@ -31,7 +30,11 @@ class Code extends Component {
   }
 
   runTest () {
-    runCode(this.state, this.ref);
+    const { script, test } = this.state;
+    const { currentModule, activeStage } = this.props;
+    const stage = currentModule.stages[activeStage];
+    const { language, languageVersion, testFramework } = stage;
+    runCode({ script, test, language, languageVersion, testFramework }, this.ref);
   }
 
   updateRef(ref) {
