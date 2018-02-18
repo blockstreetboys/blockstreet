@@ -1,11 +1,13 @@
 import {
   HIDE_DEV_SIDEBAR,
   SHOW_DEV_SIDEBAR,
-  CHANGE_STAGE } from '../actions/ui_actions';
+  CHANGE_STAGE,
+  SWITCH_TAB } from '../actions/ui_actions';
 
 const defaultState = {
   showDevSidebar: true,
-  activeStage: 0
+  activeStage: 0,
+  activeTab: "script"
 };
 
 const uiReducer = (state = defaultState, action) => {
@@ -16,6 +18,8 @@ const uiReducer = (state = defaultState, action) => {
       return Object.assign({}, state, {showDevSidebar: true});
     case CHANGE_STAGE:
       return Object.assign({}, state, {activeStage: action.stageNumber});
+    case SWITCH_TAB:
+      return Object.assign({}, state, {activeTab: action.tabName});
     default:
       return state;
   }

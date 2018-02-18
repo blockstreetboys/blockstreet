@@ -27,7 +27,8 @@ class CodeEditor extends Component {
   }
   render() {
     return (
-      <textarea className='code-editor' ref="editor" />
+      <textarea className={`code-editor ${this.props.type}-editor` +
+      this.props.activeTab === "type" ? "" : "hidden" } ref="editor" />
     );
   }
 }
