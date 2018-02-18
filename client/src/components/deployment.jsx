@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import MetaMask from './metamask';
 import { connect } from 'react-redux';
+import deploy from '../modules/spaceman/deploy';
 import web3 from '../utilities/web3Config';
 
 const mapStateToProps = state => {
   const { activeStage } = state.ui;
   const { stages } = state.modules.spaceman;
   return ({
-    lastSolidityStage: stages[activeStage - 2], // TODO: hardcoded for now!
+    lastSolidityStage: stages[3], // TODO: hardcoded for now!
     currentStage: stages[activeStage],
   });
 };
@@ -21,8 +22,7 @@ class Deployment extends Component {
     this.deploy = this.deploy.bind(this);
   }
   deploy() {
-
-    console.log('hey', this.props.lastSolidityStage)
+    deploy(web3.eth.accounts[0], web3.eth.accounts[0], web3.eth.accounts[0], () => {});
   }
   render() {
     if(!this.state.deploy) return <MetaMask done={() => this.setState({ deploy: true })}/>

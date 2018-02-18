@@ -1,6 +1,7 @@
 $size-sidebar-knob: 45px;
 
 .dev-sidebar {
+  z-index: 20;
   height: 100%;
   display: flex;
   background-color: $accent-background-color;
@@ -33,6 +34,7 @@ $size-sidebar-knob: 45px;
   width: $size-sidebar-knob - 18px;
   height: $size-sidebar-knob;
   background-color: #141417;
+  cursor: pointer;
   border-bottom-right-radius: $size-sidebar-knob * 2.5;
   border-top-right-radius: $size-sidebar-knob * 2.5;
 }
