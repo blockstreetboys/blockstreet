@@ -8,6 +8,7 @@ class AstronautApi {
   }
 
   pay(astronautAddress, value, callback) {
+    value = web3.toBigNumber(value);
     this.instance.pay.sendTransaction({
       from: astronautAddress,
       value: value
