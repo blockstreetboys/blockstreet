@@ -8,7 +8,7 @@ class AstronautApi {
   }
 
   pay(astronautAddress, value, callback) {
-    value = web3.toBigNumber(value);
+    value = web3.toWei(value, 'ether');
     this.instance.pay.sendTransaction({
       from: astronautAddress,
       value: value
@@ -17,14 +17,14 @@ class AstronautApi {
   }
 
   receive(arbiterAddress, callback) {
-    this.instance.receive.send({
+    this.instance.receive.sendTransaction({
       from: arbiterAddress
     },
     callback);
   }
 
   withdraw(shipperAddress, callback) {
-    this.instance.withdraw({
+    this.instance.withdraw.sendTransaction({
       from: shipperAddress
     },
     callback);

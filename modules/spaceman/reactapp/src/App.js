@@ -11,7 +11,7 @@ class App extends Component {
   constructor (props) {
     super(props);
     this.state = {
-      currentStage: 0,
+      currentStage: "STAGE-0",
       contract: {},
       balance: 0,
       arbiterAddress: "",
