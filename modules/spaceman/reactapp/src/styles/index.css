@@ -2,7 +2,6 @@ html {
   height: 100%;
   width: 100%;
   font-family: 'Arial', sans-serif;
-
 }
 
 body {
@@ -11,10 +10,6 @@ body {
   font-family: inherit;
   height: 100%;
   width: 100%;
-}
-
-button:focus {
-  outline: 0;
 }
 
 #root {
@@ -95,7 +90,7 @@ label {
   background: #252830;
 }
 
-button {
+.stage-button {
   cursor: pointer;
   padding: 7px 17px;
   text-align: center;
@@ -105,7 +100,7 @@ button {
   font-size: 14px;
 }
 
-button:hover {
+.stage-button:hover {
   color: white;
   font-size: 14px;
   background-color: #1997c6;
@@ -140,6 +135,11 @@ button:hover {
   border-top-left-radius: 5px;
   position: fixed;
   bottom: 0px;
+}
+.input {
+ background-color: white;
+ padding: 5px;
+ border-radius: 7px;
 }
 
 .app-state {

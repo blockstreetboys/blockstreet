@@ -5,19 +5,11 @@ import 'codemirror/theme/blackboard.css';
 import 'codemirror/mode/javascript/javascript.js';
 import '../utilities/solidityMode';
 import { debounce } from '../utilities/generalUtil';
-import { unsetShowSolution } from '../actions/ui_actions';
 import { connect } from 'react-redux';
-
-const mapDispatchToProps = dispatch => {
-  return ({
-    unsetShowSolution: () => dispatch(unsetShowSolution())
-  });
-};
 
 class CodeEditor extends Component {
   constructor(props) {
     super(props);
-    this.value = "";
 
     this.handleChange = this.handleChange.bind(this);
     this.updateStoreCode = this.updateStoreCode.bind(this);
@@ -25,13 +17,12 @@ class CodeEditor extends Component {
 
   handleChange(type) {
     return (editor) => {
-      this.props. updateCompCodeState({[type]: editor.getValue()});
+      this.props.updateCompCodeState({[type]: editor.getValue()});
     };
   }
 
   updateStoreCode(type) {
     return debounce((editor)=>{
-
       this.props.updateCode(editor.getValue(), this.props.activeStage);
     }, 1000).bind(this);
   }
@@ -40,7 +31,6 @@ class CodeEditor extends Component {
     let readOnly = false;
 
     if (this.props.type === "tests") {
-      this.value = this.props.currentModule.testCases;
       readOnly = true;
     }
 
@@ -51,26 +41,15 @@ class CodeEditor extends Component {
       readOnly: readOnly
     });
 
-    this.codeMirror.setValue(this.value);
-
     this.codeMirror.on('changes', this.handleChange(this.props.type));
     this.codeMirror.on('changes', this.updateStoreCode(this.props.type));
-    this.props. updateCompCodeState({[this.props.type]: this.codeMirror.getValue()});
+    this.props.updateCompCodeState({[this.props.type]: this.codeMirror.getValue()});
 
   }
 
   componentWillReceiveProps (nextProps) {
-    if (this.props.type === "tests" &&
-    this.codeMirror !== undefined &&
-    nextProps.currentModule.title !== this.props.currentModule.title) {
-      this.value = nextProps.currentModule.testCases;
-      this.codeMirror.setValue(this.value);
-    }
-
-    if(this.props.solutionBoolean) {
-      this.value = nextProps.currentModule.referenceSolution;
-      this.codeMirror.setValue(this.value);
-      this.props.unsetShowSolution();
+    if(this.props.currentModule.code !== nextProps.currentModule.code) {
+      this.codeMirror.setValue(nextProps.currentModule.code || "");
     }
   }
 
@@ -84,4 +63,4 @@ class CodeEditor extends Component {
   }
 }
 
-export default connect(null, mapDispatchToProps)(CodeEditor);
+export default CodeEditor;

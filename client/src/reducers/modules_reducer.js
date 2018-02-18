@@ -1,4 +1,4 @@
-import { UPDATE_CODE } from '../actions/module_actions';
+import { UPDATE_CODE, SHOW_SOLUTION } from '../actions/module_actions';
 import { merge } from 'lodash';
 import spacemanData from '../modules/spaceman/config';
 
@@ -7,11 +7,33 @@ const defaultState = {
 };
 
 const modulesReducer = (state = defaultState, action) => {
+  const { stages } = state.spaceman;
+  const currentStage = stages[action.activeStage];
   switch (action.type) {
+    case SHOW_SOLUTION:
+      return {
+        ...state,
+        spaceman: {
+          ...state.spaceman,
+          stages: [
+              ...stages.slice(0, action.activeStage),
+              { ...currentStage, code: currentStage.referenceSolution },
+              ...stages.slice(action.activeStage + 1)
+          ]
+        }
+      }
     case UPDATE_CODE:
-      const newArr = state.spaceman.stages.slice();
-      newArr[action.activeStage] = merge({}, newArr[action.activeStage], {code: action.code});
-      return merge({}, state, {"spaceman": {"stages": newArr}});
+      return {
+        ...state,
+        spaceman: {
+          ...state.spaceman,
+          stages: [
+              ...stages.slice(0, action.activeStage),
+              { ...currentStage, code: action.code },
+              ...stages.slice(action.activeStage + 1)
+          ],
+        }
+      }
     default:
       return state;
   }

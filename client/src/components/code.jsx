@@ -74,7 +74,8 @@ class Code extends Component {
           currentModule={stage}
           activeStage={this.props.activeStage}/>
         <CodeDisplay updateRef={this.updateRef} />
-        <CodeButtons runTest={this.runTest}/>
+        <CodeButtons runTest={this.runTest}
+                     activeStage={this.props.activeStage}/>
       </div>
 
     );

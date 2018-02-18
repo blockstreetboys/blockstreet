@@ -54,35 +54,54 @@ class Deploy extends Component {
   }
 
   render() {
+    const coverClass = this.state.currentStage === "STAGE-0" ?
+      "closed" : "open";
+
     return (
-      <div id="deploy" className="deploy-stage stage">
-        <div className="stage-left">
-          <button
-            onClick={this.deployContract}>
-            Deploy Contract</button>
+      <div>
+
+        <div className={coverClass}>
         </div>
-        <div className="stage-right">
-          <label>Astronaut Address
-            <input
-              className="address"
-              placeholder="Enter address of buyer"
-              onChange={this.handleChange('astronautAddress')}
-              value={this.state.astronautAddress}/>
-          </label>
-          <label>Alien Auto Parts Address
-            <input
-              className="address"
-              placeholder="Enter address of seller"
-              onChange={this.handleChange('shipperAddress')}
-              value={this.state.shipperAddress}/>
-          </label>
-          <label>Arbiter Address
-            <input
-              className="address"
-              placeholder="Enter address of trusted third party"
-              onChange={this.handleChange('arbiterAddress')}
-              value={this.state.arbiterAddress}/>
-          </label>
+
+        <div id="deploy" className="deploy-stage stage">
+
+          <div className="stage-left">
+            <button
+              class="stage-button"
+              onClick={this.deployContract}>
+              Deploy Contract</button>
+          </div>
+
+          <div className="stage-mid">
+          </div>
+
+          <div className="stage-right">
+            <label>
+              <span>Astronaut Address</span>
+              <input
+                className="address"
+                placeholder="Enter address of buyer"
+                onChange={this.handleChange('astronautAddress')}
+                value={this.state.astronautAddress}/>
+            </label>
+            <label>
+              <span>Alien Auto Parts Address</span>
+              <input
+                className="address input"
+                placeholder="Enter address of seller"
+                onChange={this.handleChange('shipperAddress')}
+                value={this.state.shipperAddress}/>
+            </label>
+            <label>
+              <span>Arbiter Address</span>
+              <input
+                className="address"
+                placeholder="Enter address of trusted third party"
+                onChange={this.handleChange('arbiterAddress')}
+                value={this.state.arbiterAddress}/>
+            </label>
+          </div>
+
         </div>
       </div>
     );
