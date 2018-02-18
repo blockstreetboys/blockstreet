@@ -3,6 +3,7 @@ import CodeMirror from 'codemirror';
 import 'codemirror/lib/codemirror.css';
 import 'codemirror/theme/blackboard.css';
 import 'codemirror/mode/javascript/javascript.js';
+import { debounce } from '../utilities/generalUtil';
 
 class CodeEditor extends Component {
   constructor(props) {
@@ -10,12 +11,17 @@ class CodeEditor extends Component {
     this.value = "";
 
     this.handleChange = this.handleChange.bind(this);
+    this.updateLocalStorage = this.updateLocalStorage.bind(this);
   }
 
   handleChange(type) {
     return (editor) => {
       this.props.updateCodeState({[type]: editor.getValue()});
     };
+  }
+
+  updateLocalStorage(type) {
+    return debounce((editor)=>{console.log('updating');}, 1000);
   }
 
   componentDidMount() {
@@ -36,6 +42,7 @@ class CodeEditor extends Component {
     this.codeMirror.setValue(this.value);
 
     this.codeMirror.on('changes', this.handleChange(this.props.type));
+    this.codeMirror.on('changes', this.updateLocalStorage(this.props.type));
     this.props.updateCodeState({[this.props.type]: this.codeMirror.getValue()});
 
   }
