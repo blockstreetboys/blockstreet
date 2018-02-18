@@ -187,12 +187,12 @@ label {
 .app-state p {
   padding: 10px;
   text-align: center;
-  font-size: 18px;
+  font-size: 11px;
   color: #bdbdc1;
 }
 
 .app-state h3 {
-  font-size: 24px;
+  font-size: 16px;
   text-align: center;
   color: #1997c6;
 }

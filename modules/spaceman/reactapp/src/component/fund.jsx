@@ -33,14 +33,13 @@ class Fund extends Component {
           // Move to next stage
           document.getElementById('fund').classList.remove('active_stage');
           this.setGlobalState('currentStage', "STAGE-2");
-          this.setGlobalState('balance', this.state.balance);
         });
     }
   }
 
   handleChange(field) {
     return (e) => {
-      this.setState({ [field]: e.target.value });
+      this.setGlobalState(field, e.target.value);
     };
   }
 
