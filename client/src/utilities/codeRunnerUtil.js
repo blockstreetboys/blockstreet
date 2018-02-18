@@ -1,6 +1,6 @@
 const crUrl =  'https://codecast.qualified.io/relay';
 
-export const runCode = ({ code, testCases, language, languageVersion, testFramework }, ref) => {
+export const runCode = ({ preloaded, code, testCases, language, languageVersion, testFramework }, ref) => {
   ref.contentWindow.postMessage({
     method: 'run',
     data: {
@@ -12,7 +12,7 @@ export const runCode = ({ code, testCases, language, languageVersion, testFramew
       privilegeMode: "full",
       successMode: "specs",
       services: [],
-      setup: "",
+      setup: preloaded || "",
       ably: true,
       batch: true
     }
