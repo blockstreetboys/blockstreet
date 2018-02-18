@@ -35,13 +35,13 @@ class App extends Component {
     return (
       <div className="main-container">
         <div className="stages">
-          <UserInfo globalProps={globalProps} />
           <Deploy globalProps={globalProps}/>
           <Fund globalProps={globalProps}/>
           <Shipped globalProps={globalProps}/>
           <Approve globalProps={globalProps}/>
           <Withdraw globalProps={globalProps}/>
         </div>
+        <UserInfo globalProps={globalProps} />
       </div>
     );
   }
