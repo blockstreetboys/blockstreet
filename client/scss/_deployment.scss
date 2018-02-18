@@ -11,3 +11,13 @@
   align-items: center;
   justify-content: center;
 }
+
+.completion {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  .dev-button {
+    margin: 10px;
+  }
+}

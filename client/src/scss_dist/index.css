@@ -46,6 +46,9 @@
   border: 1px solid #1997c6;
   color: #1997c6;
   font-size: 14px; }
+  #run-test-button.disabled, .dev-button.disabled {
+    color: #869094;
+    border: 1px solid #869094; }
 
 #run-test-button:hover, .dev-button:hover {
   color: white;
@@ -169,6 +172,14 @@
   flex-direction: column;
   align-items: center;
   justify-content: center; }
+
+.completion {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; }
+  .completion .dev-button {
+    margin: 10px; }
 
 * {
   background-color: transparent;
