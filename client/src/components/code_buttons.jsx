@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import { showSolution } from '../actions/ui_actions';
+import { showSolution } from '../actions/module_actions';
 import { connect } from 'react-redux';
 
 const mapDispatchToProps = dispatch => {
   return {
-    showSolution: () => dispatch(showSolution()),
+    showSolution: (activeStage) => dispatch(showSolution(activeStage)),
   };
 };
 
@@ -19,13 +19,13 @@ class CodeButtons extends Component {
   }
 
   render() {
-    const { showSolution } = this.props;
+    const { showSolution, activeStage } = this.props;
     return (
       <div className='dev-code-buttons'>
         <RunTestButton runTest={this.props.runTest}/>
         <div className='dev-sub-buttons'>
           <button className='dev-button' onClick={this.resetCode}>Reset Code</button>
-          <button className='dev-button' onClick={showSolution}>Show Solution</button>
+          <button className='dev-button' onClick={() => showSolution(activeStage)}>Show Solution</button>
         </div>
       </div>
     );
