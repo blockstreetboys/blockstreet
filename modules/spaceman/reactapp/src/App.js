@@ -29,7 +29,7 @@ class App extends Component {
     const globalProps = {
       state: this.state,
       setGlobalState: this.setGlobalState,
-    }
+    };
 
     return (
       <div className="page_contents">

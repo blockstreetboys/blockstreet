@@ -19,7 +19,7 @@ class StageButton extends Component {
 
     return (
       <div className={stageClasses.join(" ")} onClick={this.handleClick}>
-        stage {`${this.props.idx}`}
+        {this.props.stage.title}
       </div>
 
     );

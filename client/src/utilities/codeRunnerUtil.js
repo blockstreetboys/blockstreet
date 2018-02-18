@@ -1,18 +1,18 @@
 const crUrl =  'https://codecast.qualified.io/relay';
 
-export const runCode = ({ code, tests }, ref) => {
+export const runCode = ({ script, tests }, ref) => {
   let resolve;
   let reject;
   let posts = [];
-
+  debugger
   ref.contentWindow.postMessage({
     method: 'run',
     data: {
       language: 'javascript',
       languageVersion: '6.x',
       testFramework: 'mocha_bdd',
-      fixture: `var assert = require('chai').assert; it('should be one', () => { assert.equal(a, 1) });`,
-      code: code
+      fixture: tests,
+      code: script
     }
   }, crUrl);
 

@@ -55,6 +55,21 @@
   height: 0;
   overflow: hidden; }
 
+.dev-code-tabs {
+  display: flex;
+  justify-content: flex-start; }
+  .dev-code-tabs div {
+    height: 20px;
+    width: 70px;
+    background-color: #0c1020;
+    cursor: pointer;
+    padding: 10px;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    text-align: center; }
+  .dev-code-tabs .inactive-tab {
+    background-color: #1B223E; }
+
 .dev-sidebar {
   height: 100%;
   display: flex;

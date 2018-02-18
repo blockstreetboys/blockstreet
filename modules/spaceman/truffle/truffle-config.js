@@ -1,5 +1,5 @@
 module.exports = {
   // See <http://truffleframework.com/docs/advanced/configuration>
   // to customize your Truffle configuration!
-  contracts_build_directory: '../src/web3Api'
+  contracts_build_directory: '../reactapp/src/web3Api'
 };

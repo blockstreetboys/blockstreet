@@ -1,14 +1,28 @@
 import React, { Component } from 'react';
 
 class CodeButtons extends Component {
+  constructor(props) {
+    super(props);
+
+    this.resetCode = this.resetCode.bind(this);
+    this.showSolution = this.showSolution.bind(this);
+  }
+
+  resetCode() {
+
+  }
+
+  showSolution() {
+
+  }
 
   render() {
     return (
       <div className='dev-code-buttons'>
         <RunTestButton runTest={this.props.runTest}/>
         <div className='dev-sub-buttons'>
-          <button className='dev-button'>Reset Code</button>
-          <button className='dev-button'>Show Solution</button>
+          <button className='dev-button' onClick={this.resetCode}>Reset Code</button>
+          <button className='dev-button' onClick={this.showSolution}>Show Solution</button>
         </div>
       </div>
     );
