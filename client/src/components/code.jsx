@@ -6,18 +6,22 @@ import CodeDisplay from './code_display';
 import CodeTabs from './code_tabs';
 import { connect } from 'react-redux';
 import { updateCode } from '../actions/module_actions';
+import { showSolution } from '../actions/ui_actions';
 
 const mapStateToProps = state => {
   return ({
     activeTab: state.ui.activeTab,
     currentModule: state.modules.spaceman,
-    activeStage: state.ui.activeStage
+    activeStage: state.ui.activeStage,
+    solutionBoolean: state.ui.solutionBoolean
   });
 };
 
 const mapDispatchToProps = dispatch => {
   return ({
-    updateCode: (code, activeStage) => dispatch(updateCode(code, activeStage))
+    updateCode: (code, activeStage) => dispatch(updateCode(code, activeStage)),
+    showSolution: () => dispatch(showSolution())
+
   });
 };
 
@@ -30,6 +34,7 @@ class Code extends Component {
     this.updateCompCodeState = this.updateCompCodeState.bind(this);
     this.runTest = this.runTest.bind(this);
     this.updateRef = this.updateRef.bind(this);
+    this.showSolution = this.showSolution.bind(this);
   }
 
   updateCompCodeState(code) {
@@ -49,6 +54,10 @@ class Code extends Component {
     this.ref = ref;
   }
 
+  showSolution() {
+    this.props.showSolution();
+  }
+
   render() {
     const { currentModule, activeStage } = this.props;
     const stage = currentModule.stages[activeStage];
@@ -61,7 +70,9 @@ class Code extends Component {
            updateCode={this.props.updateCode}
            type="script"
            activeTab={this.props.activeTab}
-           currentModule={stage}
+           currentModule={this.props.currentModule.solidityStages[this.props.activeStage]}
+           solutionBoolean={this.props.solutionBoolean}
+           showSolution={this.props.showSolution}
            activeStage={this.props.activeStage}/>
         <CodeEditor
           mode={stage.mode}
@@ -72,7 +83,9 @@ class Code extends Component {
           currentModule={stage}
           activeStage={this.props.activeStage}/>
         <CodeDisplay updateRef={this.updateRef} />
-        <CodeButtons runTest={this.runTest}/>
+        <CodeButtons
+          runTest={this.runTest}
+          showSolution={this.showSolution}/>
       </div>
 
     );

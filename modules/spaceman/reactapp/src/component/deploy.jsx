@@ -1,4 +1,4 @@
-import React , { Component } from 'react';
+import React, { Component } from 'react';
 import deploy from '../web3Api/deploy';
 import { watchTransaction } from '../utilities/transactionPoll';
 import AstronautApi from '../web3Api/astronautApi';
@@ -55,26 +55,35 @@ class Deploy extends Component {
 
   render() {
     return (
-      <div id="deploy" className="stage deploy_stage">
-        <form className="form_container" onSubmit={this.deployContract} >
-          <div className="button_container">
-            <button className='button_input'>Deploy Contract</button>
-          </div>
-          <div className='input_fields'>
-            <label>Your Address
-              <input onChange={this.handleChange('astronautAddress')}
-                value={this.state.astronautAddress}/>
-            </label>
-            <label>Alien Auto Parts Address
-              <input onChange={this.handleChange('shipperAddress')}
-                value={this.state.shipperAddress}/>
-            </label>
-            <label>Arbiter Address
-              <input onChange={this.handleChange('arbiterAddress')}
-                value={this.state.arbiterAddress}/>
-            </label>
-          </div>
-        </form>
+      <div id="deploy" className="deploy-stage stage">
+        <div className="stage-left">
+          <button
+            onClick={this.deployContract}>
+            Deploy Contract</button>
+        </div>
+        <div className="stage-right">
+          <label>Astronaut Address
+            <input
+              className="address"
+              placeholder="Enter address of buyer"
+              onChange={this.handleChange('astronautAddress')}
+              value={this.state.astronautAddress}/>
+          </label>
+          <label>Alien Auto Parts Address
+            <input
+              className="address"
+              placeholder="Enter address of seller"
+              onChange={this.handleChange('shipperAddress')}
+              value={this.state.shipperAddress}/>
+          </label>
+          <label>Arbiter Address
+            <input
+              className="address"
+              placeholder="Enter address of trusted third party"
+              onChange={this.handleChange('arbiterAddress')}
+              value={this.state.arbiterAddress}/>
+          </label>
+        </div>
       </div>
     );
   }

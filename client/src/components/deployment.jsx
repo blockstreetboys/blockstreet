@@ -11,8 +11,11 @@ class Deployment extends Component {
   render() {
     if(!this.state.deploy) return <MetaMask done={() => this.setState({ deploy: true })}/>
     return (
-      <div className="button">
-          Deploy your Contract!
+      <div className="deployment">
+        <p> You can deploy your contract to the test network </p>
+        <div className="dev-button">
+            Deploy my Contract
+        </div>
       </div>
     )
   }
