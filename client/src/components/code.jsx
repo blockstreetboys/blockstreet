@@ -5,6 +5,7 @@ import CodeEditor from './code_editor';
 import CodeDisplay from './code_display';
 import CodeTabs from './code_tabs';
 import { connect } from 'react-redux';
+import { updateCode } from '../actions/module_actions';
 
 const mapStateToProps = state => {
   return ({
@@ -14,18 +15,24 @@ const mapStateToProps = state => {
   });
 };
 
+const mapDispatchToProps = dispatch => {
+  return ({
+    updateCode: (code) => dispatch(updateCode(code))
+  });
+};
+
 class Code extends Component {
   constructor(props) {
     super(props);
 
     this.state = {};
     this.ref = null;
-    this.updateCodeState = this.updateCodeState.bind(this);
+    this.updateCompCodeState = this.updateCompCodeState.bind(this);
     this.runTest = this.runTest.bind(this);
     this.updateRef = this.updateRef.bind(this);
   }
 
-  updateCodeState(code) {
+  updateCompCodeState(code) {
     this.setState(code);
   }
 
@@ -49,16 +56,20 @@ class Code extends Component {
         <CodeTabs />
         <CodeEditor
            mode={stage.mode}
-           updateCodeState={this.updateCodeState}
+           updateCompCodeState={this.updateCompCodeState}
+           updateCode={this.props.updateCode}
            type="script"
            activeTab={this.props.activeTab}
-           currentModule={stage}/>
+           currentModule={stage}
+           activeStage={this.props.activeStage}/>
         <CodeEditor
           mode={stage.mode}
-          updateCodeState={this.updateCodeState}
+          updateCompCodeState={this.updateCompCodeState}
+          updateCode={this.props.updateCode}
           type="tests"
           activeTab={this.props.activeTab}
-          currentModule={stage}/>
+          currentModule={stage}
+          activeStage={this.props.activeStage}/>
         <CodeDisplay updateRef={this.updateRef} />
         <CodeButtons runTest={this.runTest}/>
       </div>
@@ -67,4 +78,4 @@ class Code extends Component {
   }
 }
 
-export default connect(mapStateToProps)(Code);
+export default connect(mapStateToProps, mapDispatchToProps)(Code);
