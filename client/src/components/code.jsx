@@ -4,11 +4,13 @@ import CodeButtons from './code_buttons';
 import CodeEditor from './code_editor';
 import CodeDisplay from './code_display';
 import CodeTabs from './code_tabs';
-import { connect } from 'react-router';
+import { connect } from 'react-redux';
 
 const mapStateToProps = state => {
   return ({
-    activeTab: state.ui.activeTab
+    activeTab: state.ui.activeTab,
+    currentModule: state.modules.spaceman,
+    activeStage: state.ui.activeStage
   });
 };
 
@@ -43,11 +45,13 @@ class Code extends Component {
         <CodeEditor
            updateCodeState={this.updateCodeState}
            type="script"
-           activeTab={this.props.activeTab}/>
+           activeTab={this.props.activeTab}
+           currentModule={this.props.currentModule.solidityStages[this.props.activeStage]}/>
         <CodeEditor
           updateCodeState={this.updateCodeState}
           type="tests"
-          activeTab={this.props.activeTab}/>
+          activeTab={this.props.activeTab}
+          currentModule={this.props.currentModule.solidityStages[this.props.activeStage]}/>
         <CodeDisplay updateRef={this.updateRef} />
         <CodeButtons runTest={this.runTest}/>
       </div>
@@ -56,4 +60,4 @@ class Code extends Component {
   }
 }
 
-export default Code;
+export default connect(mapStateToProps)(Code);

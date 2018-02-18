@@ -24,7 +24,8 @@
 
 .dev-content {
   padding: 15px;
-  flex-grow: 1; }
+  width: 515px;
+  overflow-y: scroll; }
 
 .dev-code {
   flex-grow: 1.75; }
@@ -49,6 +50,10 @@
   color: white;
   background-color: #1997c6;
   font-size: 14px; }
+
+.hidden-editor {
+  height: 0;
+  overflow: hidden; }
 
 .dev-sidebar {
   height: 100%;
@@ -145,7 +150,7 @@ html {
   height: 100%;
   background: #252830;
   color: #cfd2da;
-  min-height: 900px; }
+  min-height: 800px; }
 
 #root {
   height: 100%; }
@@ -163,4 +168,4 @@ body {
 
 .dev-body {
   display: flex;
-  height: 90%; }
+  height: 85%; }
