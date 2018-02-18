@@ -15,6 +15,9 @@ class Main extends Component {
   renderRightSection() {
     const { currentModule, activeStage } = this.props;
     const stage = currentModule.stages[activeStage];
+    if (!stage) {
+      return null;
+    }
     if(stage.type === 'code') return <Code />
     if(stage.type === 'deployment') return <Deployment />
     return null;

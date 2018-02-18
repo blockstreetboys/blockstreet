@@ -4,8 +4,14 @@ import { connect } from 'react-redux';
 
 const mapStateToProps = (state) => {
   const activeStage = state.ui.activeStage;
-  return({
-    content: state.modules.spaceman.stages[activeStage].instructions
+  let content = "";
+
+  if (state.modules.spaceman.stages[activeStage]) {
+    content = state.modules.spaceman.stages[activeStage].instructions;
+  }
+
+  return ({
+    content
   });
 };
 

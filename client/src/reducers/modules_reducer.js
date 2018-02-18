@@ -18,13 +18,15 @@ const defaultState = {
   }
 };
 
-const modulesReducer = (state = {}, action) => {
+const modulesReducer = (state = defaultState, action) => {
   switch (action.type) {
     case LOAD_SPACEMAN:
       return merge({}, state, {"spaceman": action.data});
     case UPDATE_CODE:
-      debugger
-      // return merge({}, state, {"spaceman": action.code });
+
+      const newArr = state.spaceman.stages.slice();
+      newArr[action.activeStage] = merge({}, newArr[action.activeStage], {code: action.code});
+      return merge({}, state, {"spaceman": {"stages": newArr}});
     default:
       return state;
   }

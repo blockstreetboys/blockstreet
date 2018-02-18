@@ -8,6 +8,7 @@ import {
   showSolution } from '../actions/ui_actions';
 
 const mapStateToProps = state => {
+
   return {
     sidebarShown: state.ui.showDevSidebar,
     stages: state.modules.spaceman.stages,
@@ -53,7 +54,7 @@ class Sidebar extends Component {
     }
 
     if(!this.props.stages) {
-      debugger;
+      ;
     }
     const stageButtons = this.props.stages.map((stage, idx)=>{
       return <StageButton
