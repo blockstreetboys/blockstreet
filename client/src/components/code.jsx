@@ -70,7 +70,7 @@ class Code extends Component {
            updateCode={this.props.updateCode}
            type="script"
            activeTab={this.props.activeTab}
-           currentModule={this.props.currentModule.solidityStages[this.props.activeStage]}
+           currentModule={stage}
            solutionBoolean={this.props.solutionBoolean}
            showSolution={this.props.showSolution}
            activeStage={this.props.activeStage}/>
