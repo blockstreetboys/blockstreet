@@ -21,7 +21,7 @@ class SplashPage extends Component {
             development and testing of decentralized applications.
           </p>
           <div className='get-started'>
-            <div>New to block chain development?</div>
+            <div>New to blockchain development?</div>
             <button className='dev-button' onClick={this.launchSpaceman}>Get Started</button>
           </div>
         </content>
