@@ -1,8 +1,8 @@
 import { abi, bytecode } from './AstronautContract';
-import { web3 } from './web3config';
+import web3 from './web3Config';
 const AstronautContract = web3.eth.contract(abi);
 
-class AstronautInstance {
+class AstronautApi {
   constructor(address) {
     this.instance = AstronautContract.at(address);
   }
@@ -30,4 +30,4 @@ class AstronautInstance {
   }
 }
 
-export default AstronautInstance;
+export default AstronautApi;
