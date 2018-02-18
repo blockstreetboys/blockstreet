@@ -4,6 +4,7 @@ import Fund from './component/fund';
 import Shipped from './component/shipped';
 import Approve from './component/approve';
 import Withdraw from './component/withdraw';
+import UserInfo from './component/userInfo';
 import web3 from './web3Api/web3Config';
 
 
@@ -16,7 +17,7 @@ class App extends Component {
       balance: 0,
       arbiterAddress: "",
       shipperAddress: "",
-      astronautAddress: web3.eth.accounts[0]
+      astronautAddress: ""
     };
     this.setGlobalState = this.setGlobalState.bind(this);
   }
@@ -32,8 +33,9 @@ class App extends Component {
     };
 
     return (
-      <div className="page_contents">
-        <div className="spaceman">
+      <div className="main-container">
+        <div className="stages">
+          <UserInfo globalProps={globalProps} />
           <Deploy globalProps={globalProps}/>
           <Fund globalProps={globalProps}/>
           <Shipped globalProps={globalProps}/>

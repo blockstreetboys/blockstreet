@@ -4,6 +4,7 @@ const AstronautContract = web3.eth.contract(abi);
 
 class AstronautApi {
   constructor(address) {
+    this.address = address;
     this.instance = AstronautContract.at(address);
   }
 
