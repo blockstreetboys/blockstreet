@@ -49,12 +49,11 @@ class Fund extends Component {
     "closed" : "open";
 
     return (
-      <div>
-
+      <div  className="stage" className='stage'>
         <div className={coverClass}>
         </div>
 
-        <div id="fund" className="stage">
+        <div id="fund" className='stage-content'>
           <div className="stage-left">
             <button
               className="stage-button"

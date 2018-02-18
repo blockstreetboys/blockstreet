@@ -39,12 +39,12 @@ class Withdraw extends Component {
     "closed" : "open";
 
     return (
-      <div>
+      <div className="stage">
 
         <div className={coverClass}>
         </div>
 
-        <div id="withdraw" className="stage withdraw_stage">
+        <div id="withdraw" className='stage-content'>
           <div className="stage-left">
             <button
               className="stage-button"

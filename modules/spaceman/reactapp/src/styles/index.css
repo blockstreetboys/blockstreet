@@ -51,12 +51,36 @@ body {
   font-size: 14px;
   color: #cfd2da;
   border-top: none;
-  padding: 25px;
+  position: relative;
+}
+
+#deploy {
+  height: 250px;
+}
+
+.open {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+
+.closed {
+  display: none;
 }
 
 .deploy-stage {
   height: 250px;
 
+}
+
+.stage-content {
+  display: flex;
+  justify-content: space-between;
+  height: 100%;
+  width: 100%;
+  padding: 25px;
 }
 
 .stage-left {
@@ -115,6 +139,10 @@ label {
 }
 
 .address {
+
+}
+
+.input {
   background-color: #383a42;
   color: #bdbdc1;
   padding: 5px;
@@ -136,11 +164,7 @@ label {
   position: fixed;
   bottom: 0px;
 }
-.input {
- background-color: white;
- padding: 5px;
- border-radius: 7px;
-}
+
 
 .app-state {
   display: flex;
