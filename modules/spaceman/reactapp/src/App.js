@@ -4,6 +4,7 @@ import Fund from './component/fund';
 import Shipped from './component/shipped';
 import Approve from './component/approve';
 import Withdraw from './component/withdraw';
+import web3 from './web3Api/web3Config';
 
 
 class App extends Component {
@@ -17,9 +18,9 @@ class App extends Component {
     this.setState({
       currentStage: 0,
       contract: null,
-      arbiterAddress: null,
-      shipperAddress: null,
-      astronautAddress: null
+      arbiterAddress: web3.eth.accounts[1],
+      shipperAddress: web3.eth.accounts[2],
+      astronautAddress: web3.eth.accounts[0]
     });
   }
 
@@ -28,7 +29,7 @@ class App extends Component {
   }
 
   setAddress(contractObject) {
-    // debugger
+    debugger
     this.setState({contract: contractObject});
   }
 
