@@ -21,3 +21,7 @@ export const changeStage = (stageNumber) => {
     stageNumber
   };
 };
+
+export const switchTab = () => {
+  return ({});
+};

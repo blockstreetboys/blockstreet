@@ -5,11 +5,25 @@ import 'codemirror/theme/blackboard.css';
 import 'codemirror/mode/javascript/javascript.js';
 
 class CodeEditor extends Component {
+  constructor(props) {
+    super(props);
+
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange(editor) {
+    this.props.updateCodeState(editor.getValue());
+  }
+
   componentDidMount() {
-    CodeMirror.fromTextArea(this.refs.editor, {
+    const codeMirror = CodeMirror.fromTextArea(this.refs.editor, {
       mode: 'javascript',
-      theme: 'blackboard'
+      theme: 'blackboard',
+      lineNumbers: true,
+
     });
+    codeMirror.on('changes', this.handleChange);
+
   }
   render() {
     return (

@@ -1,12 +1,24 @@
 .dev-code {
   display: flex;
   flex-direction: column;
-  .code-editor {
+
+  .CodeMirror {
     flex-grow: 2.5;
+    margin: 0 0 20px 0;
   }
   .code-display {
     flex-grow: 1;
   }
+}
+
+
+.dev-content {
+  padding: 15px;
+  flex-grow: 1;
+}
+
+.dev-code {
+  flex-grow: 1.75;
 }
 
 .dev-code-button {
