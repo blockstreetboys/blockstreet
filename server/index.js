@@ -9,7 +9,7 @@ const routesPrefix = '/api';
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.get(`${routesPrefix}/zip/`, function(request, response) {
+app.put(`${routesPrefix}/zip/`, function(request, response) {
     const { contract, testCases } = request.body;
 
     response.writeHead(200, {
