@@ -4,7 +4,8 @@ import StageButton from './stage_button';
 import {
   showDevSidebar,
   hideDevSidebar,
-  changeStage } from '../actions/ui_actions';
+  changeStage,
+  showSolution } from '../actions/ui_actions';
 
 const mapStateToProps = state => {
   return {
@@ -19,6 +20,7 @@ const mapDispatchToProps = dispatch => {
     showDevSidebar: () => dispatch(showDevSidebar()),
     hideDevSidebar: () => dispatch(hideDevSidebar()),
     changeStage: (stageNumber) => dispatch(changeStage(stageNumber)),
+    showSolution: () => dispatch(showSolution()),
   };
 };
 
@@ -59,7 +61,8 @@ class Sidebar extends Component {
         idx={idx}
         stage={stage}
         changeStage={this.props.changeStage}
-        activeStage={this.props.activeStage}/>;
+        activeStage={this.props.activeStage}
+        showSolution={this.props.showSolution}/>;
     });
 
     return (
