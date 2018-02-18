@@ -28,11 +28,9 @@ class Code extends Component {
 
   updateCodeState(code) {
     this.setState(code);
-    console.log(this.state);
   }
 
   runTest () {
-    debugger
     runCode(this.state, this.ref);
   }
 
@@ -48,12 +46,12 @@ class Code extends Component {
            updateCodeState={this.updateCodeState}
            type="script"
            activeTab={this.props.activeTab}
-           currentModule={this.props.currentModule.solidityStages[this.props.activeStage]}/>
+           currentModule={this.props.currentModule.stages[this.props.activeStage]}/>
         <CodeEditor
           updateCodeState={this.updateCodeState}
           type="tests"
           activeTab={this.props.activeTab}
-          currentModule={this.props.currentModule.solidityStages[this.props.activeStage]}/>
+          currentModule={this.props.currentModule.stages[this.props.activeStage]}/>
         <CodeDisplay updateRef={this.updateRef} />
         <CodeButtons runTest={this.runTest}/>
       </div>

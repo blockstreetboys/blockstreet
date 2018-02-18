@@ -4,7 +4,7 @@ export const runCode = ({ script, tests }, ref) => {
   let resolve;
   let reject;
   let posts = [];
-  debugger
+
   ref.contentWindow.postMessage({
     method: 'run',
     data: {

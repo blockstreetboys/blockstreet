@@ -14,7 +14,7 @@ const defaultState = {
       testCases: "",
       title: ""
     },
-    solidityStages: []
+    stages: []
   }
 };
 
