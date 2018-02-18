@@ -20,6 +20,7 @@ class CodeEditor extends Component {
     let readOnly = false;
 
     if (this.props.type === "tests") {
+      this.value = this.props.currentModule.testCases;
       this.readOnly = true;
     }
 
