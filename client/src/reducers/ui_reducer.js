@@ -7,7 +7,7 @@ import {
 const defaultState = {
   showDevSidebar: true,
   activeStage: 0,
-  activeTab: "script",
+  activeTab: "code",
   solutionBoolean: false
 };
 

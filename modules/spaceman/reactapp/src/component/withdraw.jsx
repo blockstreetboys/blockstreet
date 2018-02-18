@@ -18,8 +18,7 @@ class Withdraw extends Component {
     }
   }
 
-  withdrawFunds(e) {
-    e.preventDefault();
+  withdrawFunds() {
     if (this.state.currentStage === "STAGE-4") {
       this.state.contract.withdraw(this.state.shipperAddress, (err, res) => {
         if (err) {
@@ -36,18 +35,34 @@ class Withdraw extends Component {
   }
 
   render() {
+    const coverClass = this.state.currentStage === "STAGE-4" ?
+    "closed" : "open";
+
     return (
-      <div id="withdraw" className="stage withdraw_stage">
-        <form className="form_container" onSubmit={this.withdrawFunds}>
-          <div className="button_container">
-            <button className="button_input">Withdraw Funds</button>
+      <div className="stage">
+
+        <div className={coverClass}>
+        </div>
+
+        <div id="withdraw" className='stage-content'>
+          <div className="stage-left">
+            <button
+              className="stage-button"
+              onClick={this.withdrawFunds}>
+              Withdraw Funds</button>
           </div>
-          <div className="input_fields">
-            <label>Contract Balance
+
+          <div className="stage-mid">
+          </div>
+
+          <div className="stage-right">
+            <label>
+              <span>Contract Balance</span>
               <input value={this.state.balance}/>
             </label>
           </div>
-        </form>
+        </div>
+
       </div>
     );
   }

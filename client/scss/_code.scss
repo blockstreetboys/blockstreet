@@ -45,6 +45,10 @@
   border: 1px solid $light-blue-color;
   color: $light-blue-color;
   font-size: 14px;
+  &.disabled {
+    color: #869094;
+    border: 1px solid #869094;
+  }
 }
 
 #run-test-button:hover, .dev-button:hover{

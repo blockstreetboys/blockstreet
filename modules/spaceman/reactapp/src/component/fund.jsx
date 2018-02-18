@@ -19,8 +19,7 @@ class Fund extends Component {
     this.setState(nextProps.globalProps.state);
   }
 
-  fundContract(e) {
-    e.preventDefault();
+  fundContract() {
     if (this.state.currentStage === "STAGE-1") {
       this.state.contract.pay(this.state.astronautAddress,
         this.state.balance, (err, res) => {
@@ -34,30 +33,48 @@ class Fund extends Component {
           // Move to next stage
           document.getElementById('fund').classList.remove('active_stage');
           this.setGlobalState('currentStage', "STAGE-2");
+          this.setGlobalState('balance', this.state.balance);
         });
     }
   }
 
   handleChange(field) {
     return (e) => {
-      this.setGlobalState(field, e.target.value);
+      this.setState({ [field]: e.target.value });
     };
   }
 
   render() {
+    const coverClass = this.state.currentStage === "STAGE-1" ?
+    "closed" : "open";
+
     return (
-      <div id="fund" className="stage">
-        <form className="form_container" onSubmit={this.fundContract}>
-          <div className="button_container">
-            <button className="button_input">Make Payment</button>
+      <div  className="stage" className='stage'>
+        <div className={coverClass}>
+        </div>
+
+        <div id="fund" className='stage-content'>
+          <div className="stage-left">
+            <button
+              className="stage-button"
+              onClick={this.fundContract}>
+              Make Payment</button>
           </div>
-          <div className="input_fields">
-            <label>Payment
-              <input onChange={this.handleChange('balance')}
+
+          <div className="stage-mid">
+          </div>
+
+          <div className="stage-right">
+            <label>
+              <span>Payment</span>
+              <input
+                className="ether input"
+                onChange={this.handleChange('balance')}
                 value={this.state.balance}/>
             </label>
           </div>
-        </form>
+        </div>
+
       </div>
     );
   }
