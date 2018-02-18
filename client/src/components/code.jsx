@@ -59,7 +59,7 @@ class Code extends Component {
            mode={stage.mode}
            updateCompCodeState={this.updateCompCodeState}
            updateCode={this.props.updateCode}
-           type="script"
+           type="code"
            activeTab={this.props.activeTab}
            currentModule={stage}
            solutionBoolean={this.props.solutionBoolean}
