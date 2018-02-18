@@ -32,8 +32,8 @@ class CodeTabs extends Component {
   render() {
     return (
       <div className='dev-code-tabs'>
-        <div onClick={this.handleSwitch("script")}>Script</div>
-        <div onClick={this.handleSwitch("tests")}>Tests</div>
+        <div className={this.props.activeTab === "script" ? "" : "inactive-tab"} onClick={this.handleSwitch("script")}>Script</div>
+        <div className={this.props.activeTab === "tests" ? "" : "inactive-tab"} onClick={this.handleSwitch("tests")}>Tests</div>
       </div>
 
     );
