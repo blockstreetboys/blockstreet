@@ -14,7 +14,8 @@
 
 .dev-content {
   padding: 15px;
-  flex-grow: 1;
+  width: 515px;
+  overflow-y: scroll;
 }
 
 .dev-code {
@@ -44,4 +45,10 @@
   color: white;
   background-color: $light-blue-color;
   font-size: 14px;
+}
+
+.hidden-editor {
+  // display: none;
+  height: 0;
+  overflow: hidden;
 }
