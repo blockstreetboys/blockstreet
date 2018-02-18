@@ -38,7 +38,8 @@ class CodeEditor extends Component {
       mode: this.props.mode,
       theme: 'blackboard',
       lineNumbers: true,
-      readOnly: readOnly
+      readOnly: readOnly,
+      lineWrapping: true
     });
 
     this.codeMirror.on('changes', this.handleChange(this.props.type));

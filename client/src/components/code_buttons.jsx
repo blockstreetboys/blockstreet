@@ -19,10 +19,8 @@ class CodeButtons extends Component {
     return (
       <div className='dev-code-buttons'>
         <RunTestButton runTest={this.props.runTest}/>
-        <div className='dev-sub-buttons'>
-          <button className='dev-button' onClick={() => updateCode("", activeStage)}>Reset Code</button>
-          <button className='dev-button' onClick={() => showSolution(activeStage)}>Show Solution</button>
-        </div>
+        <button className='dev-button' onClick={() => updateCode("", activeStage)}>Reset Code</button>
+        <button className='dev-button' onClick={() => showSolution(activeStage)}>Show Solution</button>
       </div>
     );
   }
