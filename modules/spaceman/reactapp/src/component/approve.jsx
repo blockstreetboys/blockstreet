@@ -38,12 +38,12 @@ class Approve extends Component {
     "closed" : "open";
 
     return (
-      <div>
+      <div className="stage">
 
         <div className={coverClass}>
         </div>
 
-        <div id="approve" className="stage">
+        <div id="approve" className='stage-content'>
           <div className="stage-left">
             <button
               className='stage-button'

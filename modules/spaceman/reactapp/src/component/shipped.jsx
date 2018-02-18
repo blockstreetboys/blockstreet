@@ -32,12 +32,12 @@ class Shipped extends Component {
     "closed" : "open";
 
     return (
-      <div>
+      <div  className="stage">
 
         <div className={coverClass}>
         </div>
 
-        <div id="shipped" className="stage">
+        <div id="shipped" className='stage-content'>
           <div className="stage-left">
             <button
               onClick={this.shipGoods}

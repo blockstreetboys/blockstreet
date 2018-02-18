@@ -58,12 +58,12 @@ class Deploy extends Component {
       "closed" : "open";
 
     return (
-      <div>
+      <div id="deploy" className="stage">
 
         <div className={coverClass}>
         </div>
 
-        <div id="deploy" className="deploy-stage stage">
+        <div className='stage-content'>
 
           <div className="stage-left">
             <button
@@ -79,7 +79,7 @@ class Deploy extends Component {
             <label>
               <span>Astronaut Address</span>
               <input
-                className="address"
+                className="address input"
                 placeholder="Enter address of buyer"
                 onChange={this.handleChange('astronautAddress')}
                 value={this.state.astronautAddress}/>
@@ -95,7 +95,7 @@ class Deploy extends Component {
             <label>
               <span>Arbiter Address</span>
               <input
-                className="address"
+                className="address input"
                 placeholder="Enter address of trusted third party"
                 onChange={this.handleChange('arbiterAddress')}
                 value={this.state.arbiterAddress}/>
