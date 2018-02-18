@@ -157,6 +157,11 @@
   justify-content: space-between;
   align-items: center; }
 
+.metamask-outer-container {
+  text-align: center; }
+  .metamask-outer-container .instructions {
+    font-size: 1.5em; }
+
 * {
   background-color: transparent;
   border: none;

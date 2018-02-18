@@ -44,7 +44,6 @@ class Code extends Component {
   render() {
     const { currentModule, activeStage } = this.props;
     const stage = currentModule.stages[activeStage];
-    if(stage.type !== 'code') return null;
     return (
       <div className='dev-code'>
         <CodeTabs />
