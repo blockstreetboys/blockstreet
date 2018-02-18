@@ -162,6 +162,12 @@
   .metamask-outer-container .instructions {
     font-size: 1.5em; }
 
+.deployment {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; }
+
 * {
   background-color: transparent;
   border: none;
