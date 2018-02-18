@@ -10,9 +10,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get(`${routesPrefix}/zip/`, function(request, response) {
-    // const { contract, testCases } = request.body;
-    let contract = "contract { }"
-    let testCases = "test.assert"
+    const { contract, testCases } = request.body;
 
     response.writeHead(200, {
         'Content-Type': 'application/zip',
@@ -23,12 +21,13 @@ app.get(`${routesPrefix}/zip/`, function(request, response) {
 
     zip.pipe(response);
 
-    zip.glob('')
-
     zip.directory('../modules/spaceman/reactapp/', 'reactapp');
+    zip.directory('../modules/spaceman/truffle/migrations', 'reactapp/truffle/migrations');
+    zip.directory('../modules/spaceman/truffle/tests', 'reactapp/truffle/tests');
+
+    zip.file('../modules/spaceman/truffle/contracts/Migrations.sol', { name: 'reactapp/truffle/contracts/Migrations.sol' });
 
     zip.append(contract, { name: 'reactapp/truffle/contracts/astronaut.sol' })
-
     zip.append(testCases, { name: 'reactapp/truffle/tests/astronaut.js' })
 
     zip.finalize();
