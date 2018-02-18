@@ -19,6 +19,7 @@ class Deploy extends Component {
   deployContract(e) {
     e.preventDefault();
     if (this.state.currentStage === 0) {
+      debugger
       DeployWeb3(this.state.arbiterAddress, this.state.shipperAddress,
         this.state.astronautAddress,
         (err, receipt) => {
@@ -26,9 +27,9 @@ class Deploy extends Component {
             console.log(err);
             return;
           }
-          watchTransaction(receipt).then(contractObject => {
+          return watchTransaction(receipt).then(contractObject => {
             this.props.setAddress(contractObject);
-          });
+          }).catch(err => console.log(err));
         });
 
       document.getElementById('deploy').classList.remove('active_stage');
@@ -51,13 +52,16 @@ class Deploy extends Component {
           </div>
           <div className='input_fields'>
             <label>Your Address
-              <input onChange={this.handleChange('astronautAddress')}/>
+              <input onChange={this.handleChange('astronautAddress')}
+                value={this.state.astronautAddress}/>
             </label>
             <label>Alien Auto Parts Address
-              <input onChange={this.handleChange('shipperAddress')}/>
+              <input onChange={this.handleChange('shipperAddress')}
+                value={this.state.shipperAddress}/>
             </label>
             <label>Arbiter Address
-              <input onChange={this.handleChange('arbiterAddress')}/>
+              <input onChange={this.handleChange('arbiterAddress')}
+                value={this.state.arbiterAddress}/>
             </label>
           </div>
         </form>

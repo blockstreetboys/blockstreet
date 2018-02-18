@@ -8,7 +8,7 @@ const deploy = (arbiterAddress, shipperAddress, astronautAddress, callback) => {
   AstronautContract.new(arbiterAddress, shipperAddress, {
     data: bytecode,
     from: astronautAddress,
-    gas: 0
+    // gas: 0
   }, callback);
 };
 
