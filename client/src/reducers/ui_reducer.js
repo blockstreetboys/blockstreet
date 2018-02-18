@@ -3,7 +3,8 @@ import {
   SHOW_DEV_SIDEBAR,
   CHANGE_STAGE,
   SWITCH_TAB,
-  SHOW_SOLUTION } from '../actions/ui_actions';
+  SHOW_SOLUTION,
+  UNSET_SHOW_SOLUTION } from '../actions/ui_actions';
 
 const defaultState = {
   showDevSidebar: true,
@@ -23,8 +24,9 @@ const uiReducer = (state = defaultState, action) => {
     case SWITCH_TAB:
       return Object.assign({}, state, {activeTab: action.tabName});
     case SHOW_SOLUTION:
-      const bool = !state.solutionBoolean;
-      return Object.assign({}, state, {solutionBoolean: bool});
+      return Object.assign({}, state, {solutionBoolean: true});
+    case UNSET_SHOW_SOLUTION:
+      return Object.assign({}, state, {solutionBoolean: false});
     default:
       return state;
   }

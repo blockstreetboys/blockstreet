@@ -6,7 +6,6 @@ import CodeDisplay from './code_display';
 import CodeTabs from './code_tabs';
 import { connect } from 'react-redux';
 import { updateCode } from '../actions/module_actions';
-import { showSolution } from '../actions/ui_actions';
 
 const mapStateToProps = state => {
   return ({
@@ -20,8 +19,6 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return ({
     updateCode: (code, activeStage) => dispatch(updateCode(code, activeStage)),
-    showSolution: () => dispatch(showSolution())
-
   });
 };
 
@@ -67,7 +64,6 @@ class Code extends Component {
            activeTab={this.props.activeTab}
            currentModule={stage}
            solutionBoolean={this.props.solutionBoolean}
-           showSolution={this.props.showSolution}
            activeStage={this.props.activeStage}/>
         <CodeEditor
           mode={stage.mode}
@@ -78,9 +74,7 @@ class Code extends Component {
           currentModule={stage}
           activeStage={this.props.activeStage}/>
         <CodeDisplay updateRef={this.updateRef} />
-        <CodeButtons
-          runTest={this.runTest}
-          showSolution={this.props.showSolution}/>
+        <CodeButtons runTest={this.runTest}/>
       </div>
 
     );
