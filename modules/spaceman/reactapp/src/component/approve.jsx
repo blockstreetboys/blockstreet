@@ -23,10 +23,14 @@ class Approve extends Component {
 
   render() {
     return (
-      <div id="approve" className='button_only'>
-          <button className='button_static' onClick={this.approveFunds}>
-            Approve Transaction
-          </button>
+      <div id="approve" className='stage'>
+        <div className="form_container">
+          <div className="button_container">
+            <button className='button_static' onClick={this.approveFunds}>
+              Approve Transaction
+            </button>
+          </div>
+        </div>
       </div>
     );
   }

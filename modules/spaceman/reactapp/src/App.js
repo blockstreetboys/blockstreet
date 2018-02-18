@@ -36,18 +36,20 @@ class App extends Component {
   render() {
     if (this.state) {
       return (
-        <div className="spaceman">
-          <Deploy state={this.state}
-             nextStage={this.nextStage}
-             setAddress={this.setAddress}/>
-          <Fund currentStage={this.state.currentStage}
-             nextStage={this.nextStage}/>
-          <Shipped currentStage={this.state.currentStage}
-             nextStage={this.nextStage}/>
-          <Approve currentStage={this.state.currentStage}
-             nextStage={this.nextStage}/>
-          <Withdraw currentStage={this.state.currentStage}
-             nextStage={this.nextStage}/>
+        <div className="page_contents">
+          <div className="spaceman">
+            <Deploy state={this.state}
+              nextStage={this.nextStage}
+              setAddress={this.setAddress}/>
+            <Fund currentStage={this.state.currentStage}
+              nextStage={this.nextStage}/>
+            <Shipped currentStage={this.state.currentStage}
+              nextStage={this.nextStage}/>
+            <Approve currentStage={this.state.currentStage}
+              nextStage={this.nextStage}/>
+            <Withdraw currentStage={this.state.currentStage}
+              nextStage={this.nextStage}/>
+          </div>
         </div>
       );
     } else {
