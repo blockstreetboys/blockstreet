@@ -33,4 +33,4 @@ app.get(`${routesPrefix}/zip/`, function(request, response) {
     zip.finalize();
 });
 
-app.listen(port, () => console.log(`I'm alive on port ${port}!`))
+app.listen(port, () => console.log(`I'm alive! Now go to http://localhost:${port}/api/zip/`))
