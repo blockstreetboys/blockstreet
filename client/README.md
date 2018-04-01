@@ -9,3 +9,11 @@ if ! which react-scripts 1>/dev/null ; then
 fi
 npm start
 ```
+
+# Troubleshooting
+
+* If you get `Error: watch .../blockstreet/client/public ENOSPC` then run:
+
+    ```bash
+    sudo bash -c 'echo 524288 >/proc/sys/fs/inotify/max_user_watches'
+    ```
