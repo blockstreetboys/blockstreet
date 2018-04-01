@@ -18,6 +18,7 @@ contract AstronautContract {
   event Withdraw(uint256 value);
 
   function AstronautContract(address _arbiter, address _shipper) public {
+    state = State.DEPLOYED;
     arbiter = _arbiter;
     shipper = _shipper;
     astronaut = msg.sender;
